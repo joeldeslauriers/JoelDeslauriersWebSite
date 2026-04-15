@@ -7,7 +7,7 @@
   <meta name="description" content="Laurier Web crée des sites web percutants, rapides et optimisés SEO. Livraison en 7 jours. Basé à Montréal." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -24,7 +24,7 @@
         <li><a href="#services">Services</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <span class="nav-version">v2.0.7</span>
+      <span class="nav-version">v2.1.0</span>
       <a href="#contact" class="btn btn-red nav-cta">Obtenir un devis</a>
       <button class="burger" id="burger" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -34,10 +34,12 @@
 
   <!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
   <section class="hero" id="hero">
-    <!-- Blobs animés -->
-    <div class="blob blob-1" aria-hidden="true"></div>
-    <div class="blob blob-2" aria-hidden="true"></div>
-    <div class="blob blob-3" aria-hidden="true"></div>
+    <!-- Formes géométriques -->
+    <div class="geo geo-ring-1" aria-hidden="true"></div>
+    <div class="geo geo-ring-2" aria-hidden="true"></div>
+    <div class="geo geo-ring-3" aria-hidden="true"></div>
+    <div class="geo geo-vline" aria-hidden="true"></div>
+    <div class="geo geo-hline" aria-hidden="true"></div>
 
     <div class="hero-inner">
       <div class="badge" aria-label="Statut : disponible pour nouveaux projets">
@@ -130,7 +132,7 @@
         <p>Des templates professionnels personnalisés selon votre identité.</p>
       </div>
 
-      <div class="cards-grid">
+      <div class="cards-grid cards-grid--3">
 
         <!-- Carte 1 -->
         <article class="card reveal">
@@ -142,7 +144,7 @@
             <h3>Site Vitrine Pro</h3>
             <p>Présentation claire de vos services, de votre équipe et de vos coordonnées. Idéal pour les <strong>notaires</strong>, <strong>salons de coiffure</strong>, <strong>barbiers</strong>, <strong>tattoo shops</strong>, <strong>entrepreneurs en construction</strong>, cliniques, photographes, avocats et bien plus.</p>
             <div class="card-meta">
-              <span class="price">À partir de <strong>800 $</strong></span>
+              <span class="price">À partir de <strong>400 $</strong></span>
               <span class="delay">⏱ 7 jours</span>
             </div>
             <a href="#contact" class="btn btn-ghost">Voir plus →</a>
@@ -151,16 +153,15 @@
 
         <!-- Carte 2 -->
         <article class="card reveal">
-          <div class="card-thumb thumb-orange">
-            <span class="thumb-emoji">🍽️</span>
-            <div class="card-badge badge-soon">À venir</div>
+          <div class="card-thumb thumb-green">
+            <span class="thumb-emoji">📰</span>
           </div>
           <div class="card-body">
-            <h3>Restaurant</h3>
-            <p>Menu en ligne, réservations, galerie photo et ambiance à couper le souffle.</p>
+            <h3>Blog &amp; Magazine</h3>
+            <p>Publiez du contenu engageant, gérez vos articles et fidélisez votre audience. Idéal pour journalistes, influenceurs, coachs et experts de niche.</p>
             <div class="card-meta">
-              <span class="price">À partir de <strong>600 $</strong></span>
-              <span class="delay">⏱ 5 jours</span>
+              <span class="price">À partir de <strong>500 $</strong></span>
+              <span class="delay">⏱ 7 jours</span>
             </div>
             <a href="#contact" class="btn btn-ghost">Voir plus →</a>
           </div>
@@ -168,66 +169,14 @@
 
         <!-- Carte 3 -->
         <article class="card reveal">
-          <div class="card-thumb thumb-cyan">
-            <span class="thumb-emoji">🛒</span>
-            <div class="card-badge badge-soon">À venir</div>
-          </div>
-          <div class="card-body">
-            <h3>Boutique en ligne</h3>
-            <p>Catalogue produits, panier, paiement sécurisé et gestion des commandes.</p>
-            <div class="card-meta">
-              <span class="price">À partir de <strong>1 500 $</strong></span>
-              <span class="delay">⏱ 14 jours</span>
-            </div>
-            <a href="#contact" class="btn btn-ghost">Voir plus →</a>
-          </div>
-        </article>
-
-        <!-- Carte 4 -->
-        <article class="card reveal">
-          <div class="card-thumb thumb-purple">
-            <span class="thumb-emoji">✨</span>
-            <div class="card-badge badge-new">New</div>
-          </div>
-          <div class="card-body">
-            <h3>Portfolio Créatif</h3>
-            <p>Mettez votre travail en lumière avec des galeries immersives et animées.</p>
-            <div class="card-meta">
-              <span class="price">À partir de <strong>500 $</strong></span>
-              <span class="delay">⏱ 4 jours</span>
-            </div>
-            <a href="#contact" class="btn btn-ghost">Voir plus →</a>
-          </div>
-        </article>
-
-        <!-- Carte 5 -->
-        <article class="card reveal">
-          <div class="card-thumb thumb-green">
-            <span class="thumb-emoji">📰</span>
-            <div class="card-badge badge-soon">À venir</div>
-          </div>
-          <div class="card-body">
-            <h3>Blog &amp; Magazine</h3>
-            <p>Publiez du contenu engageant, gérez vos articles et fidélisez votre audience. Idéal pour journalistes, influenceurs et experts de niche.</p>
-            <div class="card-meta">
-              <span class="price">À partir de <strong>700 $</strong></span>
-              <span class="delay">⏱ 7 jours</span>
-            </div>
-            <a href="#contact" class="btn btn-ghost">Voir plus →</a>
-          </div>
-        </article>
-
-        <!-- Carte 6 -->
-        <article class="card reveal">
           <div class="card-thumb thumb-rose">
             <span class="thumb-emoji">📅</span>
-            <div class="card-badge badge-soon">À venir</div>
           </div>
           <div class="card-body">
             <h3>Site de Réservation</h3>
-            <p>Calendrier de disponibilités, prise de rendez-vous en ligne et confirmations automatiques. Idéal pour spas, cliniques et studios de yoga.</p>
+            <p>Calendrier de disponibilités, prise de rendez-vous en ligne et confirmations automatiques. Idéal pour spas, cliniques, coiffeurs et studios de yoga.</p>
             <div class="card-meta">
-              <span class="price">À partir de <strong>1 000 $</strong></span>
+              <span class="price">À partir de <strong>800 $</strong></span>
               <span class="delay">⏱ 10 jours</span>
             </div>
             <a href="#contact" class="btn btn-ghost">Voir plus →</a>
@@ -286,7 +235,7 @@
         <p>Des projets livrés pour de vrais clients — jetez un coup d'œil.</p>
       </div>
 
-      <div class="real-grid">
+      <div class="real-grid real-grid--2">
 
         <!-- Réalisation 1 -->
         <div class="real-card reveal">
@@ -298,16 +247,16 @@
               <span class="bc-bar">joelaurierproduction.com</span>
             </div>
             <div class="preview-content">
-              <span class="preview-emoji">🎬</span>
-              <span class="preview-label">Production vidéo</span>
+              <span class="preview-emoji">🎵</span>
+              <span class="preview-label">Musique &amp; Production</span>
             </div>
           </div>
           <div class="real-body">
-            <h3>Joël Laurier Production</h3>
-            <p>Site vitrine pour une agence de production vidéo et audiovisuelle professionnelle.</p>
+            <h3>Joe Laurier Music Production</h3>
+            <p>Site vitrine pour un artiste et producteur musical professionnel.</p>
             <div class="real-tags">
-              <span class="real-tag">Site vitrine</span>
-              <span class="real-tag">Portfolio</span>
+              <span class="real-tag real-tag--type">Site Vitrine Pro</span>
+              <span class="real-tag">SEO</span>
             </div>
             <a href="https://joelaurierproduction.com/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
               Visiter le site →
@@ -333,64 +282,10 @@
             <h3>Scellants Cellco</h3>
             <p>Présence en ligne pour une entreprise spécialisée dans les produits de scellement et construction.</p>
             <div class="real-tags">
-              <span class="real-tag">Site vitrine</span>
+              <span class="real-tag real-tag--type">Site Vitrine Pro</span>
               <span class="real-tag">SEO</span>
             </div>
             <a href="https://www.scellantscellco.ca/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
-              Visiter le site →
-            </a>
-          </div>
-        </div>
-
-        <!-- Réalisation 3 -->
-        <div class="real-card reveal">
-          <div class="real-preview preview-blue">
-            <div class="browser-chrome">
-              <span class="bc-dot bc-red"></span>
-              <span class="bc-dot bc-yellow"></span>
-              <span class="bc-dot bc-green"></span>
-              <span class="bc-bar">joeldeslauriers.github.io/mtechWebsite</span>
-            </div>
-            <div class="preview-content">
-              <span class="preview-emoji">💻</span>
-              <span class="preview-label">Technologie</span>
-            </div>
-          </div>
-          <div class="real-body">
-            <h3>MTech Website</h3>
-            <p>Site web moderne pour une entreprise de services technologiques et informatiques.</p>
-            <div class="real-tags">
-              <span class="real-tag">Site vitrine</span>
-              <span class="real-tag">Responsive</span>
-            </div>
-            <a href="https://joeldeslauriers.github.io/mtechWebsite/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
-              Visiter le site →
-            </a>
-          </div>
-        </div>
-
-        <!-- Réalisation 4 -->
-        <div class="real-card reveal">
-          <div class="real-preview preview-cyan">
-            <div class="browser-chrome">
-              <span class="bc-dot bc-red"></span>
-              <span class="bc-dot bc-yellow"></span>
-              <span class="bc-dot bc-green"></span>
-              <span class="bc-bar">joeldeslauriers.github.io/FNWebSite</span>
-            </div>
-            <div class="preview-content">
-              <span class="preview-emoji">🌿</span>
-              <span class="preview-label">Communauté</span>
-            </div>
-          </div>
-          <div class="real-body">
-            <h3>FN Website</h3>
-            <p>Plateforme web dédiée à une communauté avec navigation claire et design impactant.</p>
-            <div class="real-tags">
-              <span class="real-tag">Site vitrine</span>
-              <span class="real-tag">Communauté</span>
-            </div>
-            <a href="https://joeldeslauriers.github.io/FNWebSite/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
               Visiter le site →
             </a>
           </div>
@@ -443,12 +338,10 @@
           <div class="field-group full">
             <label>Type de site désiré</label>
             <div class="checkboxes">
-              <label class="check-label"><input type="checkbox" name="siteType" value="vitrine" /><span>Site vitrine</span></label>
-              <label class="check-label"><input type="checkbox" name="siteType" value="restaurant" /><span>Restaurant / Café</span></label>
-              <label class="check-label"><input type="checkbox" name="siteType" value="boutique" /><span>Boutique en ligne</span></label>
-              <label class="check-label"><input type="checkbox" name="siteType" value="portfolio" /><span>Portfolio</span></label>
-              <label class="check-label"><input type="checkbox" name="siteType" value="blog" /><span>Blog / Magazine</span></label>
-              <label class="check-label"><input type="checkbox" name="siteType" value="autre" /><span>Autre</span></label>
+              <label class="check-label"><input type="checkbox" name="siteType" value="vitrine" /><span>Site Vitrine Pro — 400 $+</span></label>
+              <label class="check-label"><input type="checkbox" name="siteType" value="blog" /><span>Blog &amp; Magazine — 500 $+</span></label>
+              <label class="check-label"><input type="checkbox" name="siteType" value="reservation" /><span>Site de Réservation — 800 $+</span></label>
+              <label class="check-label"><input type="checkbox" name="siteType" value="autre" /><span>Autre / Je ne sais pas encore</span></label>
             </div>
           </div>
 
@@ -525,7 +418,7 @@
         </a>
       </div>
 
-      <p class="footer-copy">© 2026 Laurier Web — Montréal, QC &nbsp;·&nbsp; <span id="siteVersion" class="footer-version">V2.0.7</span></p>
+      <p class="footer-copy">© 2026 Laurier Web — Montréal, QC &nbsp;·&nbsp; <span id="siteVersion" class="footer-version">V2.1.0</span></p>
     </div>
   </footer>
 
