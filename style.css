@@ -501,6 +501,8 @@ ul { list-style: none; }
 .thumb-orange { background: linear-gradient(135deg, #7c2d12, #ea580c, #fbbf24); }
 .thumb-cyan   { background: linear-gradient(135deg, #0f4c75, #00b4d8, #0ef); }
 .thumb-purple { background: linear-gradient(135deg, #2d1b69, #7c3aed, #a855f7); }
+.thumb-green  { background: linear-gradient(135deg, #14532d, #16a34a, #4ade80); }
+.thumb-rose   { background: linear-gradient(135deg, #881337, #e11d48, #fb7185); }
 
 .thumb-emoji {
   font-size: 3.5rem;
