@@ -167,7 +167,7 @@ ul { list-style: none; }
   align-items: center;
 }
 .logo-image {
-  height: 92px;
+  height: 115px;
   width: auto;
   display: block;
 }
@@ -410,7 +410,7 @@ ul { list-style: none; }
 }
 
 .marquee-item {
-  font-family: var(--font-head);
+  font-family: 'Playfair Display', serif;
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-muted);
