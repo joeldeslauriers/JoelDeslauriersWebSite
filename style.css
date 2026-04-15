@@ -746,6 +746,20 @@ ul { list-style: none; }
   color: var(--text-dim);
 }
 
+/* Version navbar */
+.nav-version {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  opacity: 0.6;
+  margin-left: auto;
+}
+
 /* Version footer */
 .footer-version {
   font-family: var(--font-body);
