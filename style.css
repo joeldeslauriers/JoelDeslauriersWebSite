@@ -523,8 +523,9 @@ ul { list-style: none; }
   padding: 4px 10px;
   border-radius: var(--radius-full);
 }
-.badge-pop { background: var(--red);    color: #fff; }
-.badge-new { background: var(--yellow); color: #000; }
+.badge-pop  { background: var(--red);    color: #fff; }
+.badge-new  { background: var(--yellow); color: #000; }
+.badge-soon { background: #2a2a3d; color: var(--text-muted); border: 1px solid var(--border); }
 
 .card-body { padding: 22px 24px 24px; }
 .card-body h3 {
