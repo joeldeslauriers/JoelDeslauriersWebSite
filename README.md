@@ -1,6 +1,6 @@
-# Webyx — Site web agence
+# Laurier Web — Site web agence
 
-Site one-page pour l'agence de création de sites web **Webyx**.  
+Site one-page pour l'agence de création de sites web **Laurier Web**.  
 Stack : HTML5 · CSS3 · JavaScript Vanilla — aucune dépendance, pas de build tool.
 
 ---
@@ -30,16 +30,16 @@ Stack : HTML5 · CSS3 · JavaScript Vanilla — aucune dépendance, pas de build
 ## Personnalisation
 
 ### Nom et marque
-- Dans `index.html`, cherchez `Webyx` pour changer le nom de l'agence.
-- La variable logo est dans les balises `.logo` — le "x" rouge utilise la classe `.logo-x`.
+- Dans `index.html`, cherchez `Laurier Web` pour changer le nom de l'agence.
+- Le logo est une image PNG dans `assets/images/LogoTransparent.png`, intégrée via la classe `.logo-image`.
 
 ### Couleurs
 Toutes les couleurs sont des variables CSS dans `style.css` (ligne ~10) :
 ```css
---red:    #FF3D00;   /* rouge vif — CTA, accents */
---yellow: #FFD600;   /* jaune électrique */
---cyan:   #00E5FF;   /* cyan — délais, icônes */
---bg:     #0A0A0A;   /* fond principal */
+--red:    #4CAF50;   /* vert laurier — CTA, accents principaux */
+--yellow: #81C784;   /* vert clair — badges secondaires */
+--cyan:   #A5D6A7;   /* vert très clair — délais, icônes */
+--bg:     #0A1128;   /* marine foncé — fond principal */
 ```
 Modifiez uniquement ces variables pour refaire la palette entière.
 
@@ -178,4 +178,4 @@ Ajoutez dans le `<head>` de `index.html` :
 ## Licence
 
 Usage libre pour projets personnels et commerciaux.  
-© 2026 Webyx — Montréal, QC
+© 2026 Laurier Web — Montréal, QC

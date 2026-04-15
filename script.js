@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   WEBYX — script.js
+   LAURIER WEB — script.js
    · Navbar scroll effect
    · Burger menu (mobile)
    · Scroll reveal (IntersectionObserver)
