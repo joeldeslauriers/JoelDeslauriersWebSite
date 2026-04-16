@@ -1477,6 +1477,12 @@ textarea { resize: vertical; min-height: 120px; line-height: 1.7; }
   font-size: 0.78rem;
   color: var(--text-dim);
 }
+.footer-neq {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  display: block;
+}
 
 .footer-links { display: flex; flex-direction: column; gap: 10px; }
 .footer-links li a {
