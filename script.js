@@ -448,20 +448,35 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Simulation envoi (remplacer par Formspree)
       submitBtn.disabled    = true;
       submitBtn.textContent = 'Envoi en cours…';
 
-      setTimeout(() => {
-        successMsg.hidden = false;
-        successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        form.reset();
-        budgetBtns.forEach(b => b.classList.remove('active'));
-        if (budgetValue) budgetValue.value = '';
-        submitBtn.disabled    = false;
-        submitBtn.innerHTML   = 'Envoyer ma demande <span class="arr">→</span>';
-        setTimeout(() => { successMsg.hidden = true; }, 8000);
-      }, 800);
+      const data = new FormData(form);
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data
+      })
+      .then(res => res.json())
+      .then(json => {
+        if (json.success) {
+          successMsg.hidden = false;
+          successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          form.reset();
+          budgetBtns.forEach(b => b.classList.remove('active'));
+          if (budgetValue) budgetValue.value = '';
+          setTimeout(() => { successMsg.hidden = true; }, 8000);
+        } else {
+          alert('Une erreur est survenue. Veuillez réessayer ou nous écrire directement à LaurierWeb@gmail.com');
+        }
+      })
+      .catch(() => {
+        alert('Une erreur est survenue. Veuillez réessayer ou nous écrire directement à LaurierWeb@gmail.com');
+      })
+      .finally(() => {
+        submitBtn.disabled  = false;
+        submitBtn.innerHTML = 'Envoyer ma demande <span class="arr">→</span>';
+      });
     });
   }
 
