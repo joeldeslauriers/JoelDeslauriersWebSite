@@ -1,8 +1,9 @@
 /* ═══════════════════════════════════════════════════════════════
-   LAURIER WEB — script.js  v2.2.0
+   LAURIER WEB — script.js  v2.3.0
    · Navbar scroll
    · Burger menu
-   · Canvas particules
+   · Canvas sparkles hero
+   · Feuilles de laurier flottantes
    · Scroll reveal (IntersectionObserver)
    · Compteurs animés
    · Curseur custom
@@ -59,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ─────────────────────────────────
-     3. CANVAS PARTICULES HERO
+     3. CANVAS PARTICULES HERO — sparkles
   ───────────────────────────────── */
   const canvas = document.getElementById('heroCanvas');
 
@@ -73,19 +74,22 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const createParticles = () => {
-      const count = Math.min(Math.floor((W * H) / 14000), 80);
+      const count = Math.min(Math.floor((W * H) / 11000), 75);
       particles = Array.from({ length: count }, () => ({
-        x:  Math.random() * W,
-        y:  Math.random() * H,
-        r:  Math.random() * 1.4 + 0.4,
-        vx: (Math.random() - 0.5) * 0.28,
-        vy: (Math.random() - 0.5) * 0.28,
-        a:  Math.random() * 0.35 + 0.07
+        x:     Math.random() * W,
+        y:     Math.random() * H,
+        r:     Math.random() * 2.2 + 0.5,
+        vx:    (Math.random() - 0.5) * 0.22,
+        vy:    (Math.random() - 0.5) * 0.22,
+        a:     Math.random() * 0.5 + 0.1,
+        freq:  Math.random() * 1.2 + 0.4,
+        phase: Math.random() * Math.PI * 2
       }));
     };
 
     const draw = () => {
       ctx.clearRect(0, 0, W, H);
+      const t = performance.now() / 1000;
       particles.forEach(p => {
         p.x += p.vx;
         p.y += p.vy;
@@ -93,36 +97,127 @@ document.addEventListener('DOMContentLoaded', () => {
         if (p.x > W) p.x = 0;
         if (p.y < 0) p.y = H;
         if (p.y > H) p.y = 0;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(76,175,80,${p.a})`;
-        ctx.fill();
+
+        const alpha = p.a * (0.45 + 0.55 * Math.abs(Math.sin(t * p.freq + p.phase)));
+
+        if (p.r < 1.2) {
+          // Petits points lumineux
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(165,214,167,${alpha})`;
+          ctx.fill();
+        } else {
+          // Sparkle 4 branches
+          const s = p.r * 2.8;
+          ctx.save();
+          ctx.globalAlpha = alpha;
+          ctx.strokeStyle = 'rgba(165,214,167,1)';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y - s); ctx.lineTo(p.x, p.y + s);
+          ctx.moveTo(p.x - s, p.y); ctx.lineTo(p.x + s, p.y);
+          ctx.stroke();
+          ctx.lineWidth = 0.5;
+          const d = s * 0.45;
+          ctx.beginPath();
+          ctx.moveTo(p.x - d, p.y - d); ctx.lineTo(p.x + d, p.y + d);
+          ctx.moveTo(p.x + d, p.y - d); ctx.lineTo(p.x - d, p.y + d);
+          ctx.stroke();
+          ctx.restore();
+        }
       });
       rafId = requestAnimationFrame(draw);
     };
 
-    const handleResize = () => {
-      resize();
-      createParticles();
-    };
-
+    const handleResize = () => { resize(); createParticles(); };
     window.addEventListener('resize', handleResize, { passive: true });
     resize();
     createParticles();
     draw();
 
-    // Suspendre quand le canvas n'est plus visible (performance)
     const canvasObserver = new IntersectionObserver(entries => {
       entries.forEach(e => {
-        if (e.isIntersecting) {
-          if (!rafId) draw();
-        } else {
-          cancelAnimationFrame(rafId);
-          rafId = null;
-        }
+        if (e.isIntersecting) { if (!rafId) draw(); }
+        else { cancelAnimationFrame(rafId); rafId = null; }
       });
     });
     canvasObserver.observe(canvas);
+  }
+
+
+  /* ─────────────────────────────────
+     4. FEUILLES DE LAURIER HERO
+  ───────────────────────────────── */
+  const leavesContainer = document.getElementById('heroLeaves');
+  if (leavesContainer) {
+    const NS = 'http://www.w3.org/2000/svg';
+    // [left%, top%, size_w, rot_deg, opacity, dur_s, delay_s]
+    const leafData = [
+      [78,  3,  105, -32, 0.55, 7.5, 0   ],
+      [88, 28,   72,  22, 0.42, 8.2, -3  ],
+      [63,  6,   52, -58, 0.32, 6.4, -1.5],
+      [93, 58,   88,  48, 0.48, 9.0, -4  ],
+      [70, 72,   62, -18, 0.28, 7.1, -2  ],
+      [ 3,  8,   78,  14, 0.22, 8.6, -5  ],
+      [12, 78,   48, -42, 0.18, 6.8, -1  ],
+      [52, 82,   58,  32, 0.22, 7.3, -3.5],
+      [34,  2,   44, -12, 0.18, 9.2, -2.5],
+      [96, 82,   68,  62, 0.32, 8.0, -0.5],
+      [46, 50,   40, -70, 0.15, 6.2, -4.5],
+    ];
+
+    leafData.forEach(([lx, ly, sw, rot, op, dur, delay], i) => {
+      const sh = sw * 1.9;
+      const svg = document.createElementNS(NS, 'svg');
+      svg.setAttribute('viewBox', '-35 -60 70 120');
+      svg.setAttribute('width',  sw);
+      svg.setAttribute('height', sh);
+      svg.classList.add('hero-leaf');
+      svg.style.cssText = `left:${lx}%;top:${ly}%;width:${sw}px;height:${sh}px;opacity:${op};--rot:${rot}deg;--dur:${dur}s;--delay:${delay}s;`;
+
+      // Gradient unique par feuille
+      const defs = document.createElementNS(NS, 'defs');
+      const gid  = `lg${i}`;
+      const grad = document.createElementNS(NS, 'linearGradient');
+      grad.setAttribute('id', gid);
+      grad.setAttribute('x1', '0%'); grad.setAttribute('y1', '0%');
+      grad.setAttribute('x2', '30%'); grad.setAttribute('y2', '100%');
+      [['0%','#81C784'], ['55%','#4CAF50'], ['100%','#2E7D32']].forEach(([off, col]) => {
+        const stop = document.createElementNS(NS, 'stop');
+        stop.setAttribute('offset', off);
+        stop.setAttribute('stop-color', col);
+        grad.appendChild(stop);
+      });
+      defs.appendChild(grad);
+      svg.appendChild(defs);
+
+      // Forme feuille
+      const leaf = document.createElementNS(NS, 'path');
+      leaf.setAttribute('d', 'M0,-55 C26,-40 33,-12 28,8 C22,28 12,46 0,55 C-12,46 -22,28 -28,8 C-33,-12 -26,-40 0,-55Z');
+      leaf.setAttribute('fill', `url(#${gid})`);
+      svg.appendChild(leaf);
+
+      // Nervure centrale
+      const vein = document.createElementNS(NS, 'line');
+      vein.setAttribute('x1','0'); vein.setAttribute('y1','-52');
+      vein.setAttribute('x2','0'); vein.setAttribute('y2','52');
+      vein.setAttribute('stroke','rgba(255,255,255,0.22)');
+      vein.setAttribute('stroke-width','1');
+      svg.appendChild(vein);
+
+      // Nervures latérales
+      const veins = document.createElementNS(NS, 'path');
+      veins.setAttribute('d',
+        'M0,-35 C10,-26 13,-15 9,-8 M0,-15 C11,-6 14,5 10,12 M0,5 C10,14 11,24 7,30 ' +
+        'M0,-35 C-10,-26 -13,-15 -9,-8 M0,-15 C-11,-6 -14,5 -10,12 M0,5 C-10,14 -11,24 -7,30'
+      );
+      veins.setAttribute('fill','none');
+      veins.setAttribute('stroke','rgba(255,255,255,0.16)');
+      veins.setAttribute('stroke-width','0.8');
+      svg.appendChild(veins);
+
+      leavesContainer.appendChild(svg);
+    });
   }
 
 

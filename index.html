@@ -32,7 +32,7 @@
         <li><a href="#services">Services</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <span class="nav-version">v2.2.2</span>
+      <span class="nav-version">v2.3.0</span>
       <a href="#contact" class="btn btn-red nav-cta">Obtenir un devis</a>
       <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -43,12 +43,7 @@
   <!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
   <section class="hero" id="hero">
     <canvas id="heroCanvas" class="hero-canvas" aria-hidden="true"></canvas>
-    <!-- Couronne de laurier en fond subtil -->
-    <div class="hero-wreath" aria-hidden="true">
-      <img src="assets/images/back.png" alt="" draggable="false" />
-    </div>
-    <div class="geo geo-ring-1" aria-hidden="true"></div>
-    <div class="geo geo-ring-2" aria-hidden="true"></div>
+    <div class="hero-leaves" id="heroLeaves" aria-hidden="true"></div>
 
     <div class="hero-inner">
 
@@ -176,7 +171,7 @@
         <p>Des templates professionnels personnalisés selon votre identité et votre secteur.</p>
       </div>
 
-      <div class="cards-grid cards-grid--2x2">
+      <div class="cards-grid cards-grid--3">
 
         <!-- Carte 1 — Site Vitrine Pro -->
         <article class="card reveal">
@@ -193,40 +188,15 @@
           </div>
           <div class="card-body">
             <h3>Site Vitrine Pro</h3>
-            <p>Présentation claire de vos services, de votre équipe et de vos coordonnées. Idéal pour les notaires, salons, barbiers, photographes et entrepreneurs.</p>
+            <p>Présentation claire de vos services, de votre équipe et de vos coordonnées. Idéal pour les notaires, salons, photographes et entrepreneurs.</p>
             <div class="card-meta">
-              <span class="price">À partir de <strong>300 $</strong></span>
-              <span class="delay">⏱ 5–7 jours</span>
+              <span class="delay">⏱ Livré en 5–7 jours</span>
             </div>
-            <a href="#contact" class="btn btn-ghost">Voir plus →</a>
+            <a href="#contact" class="btn btn-ghost">Demander un prototype →</a>
           </div>
         </article>
 
-        <!-- Carte 2 — Restaurant & Café -->
-        <article class="card reveal">
-          <div class="card-thumb">
-            <div class="site-mock sm-variant-warm">
-              <div class="sm-topbar"><span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-urlbar"></span></div>
-              <div class="sm-body">
-                <div class="sm-nav-bar"><span class="sm-logo-mark"></span><span class="sm-nav-items"></span><span class="sm-nav-btn"></span></div>
-                <div class="sm-hero-block sm-hero-wide"><div class="sm-title-line sm-tl-lg"></div><div class="sm-title-line sm-tl-md"></div><div class="sm-cta-mock"></div></div>
-                <div class="sm-content-rows"><div class="sm-card-row"><span class="sm-mini-card sm-card-wide"></span><span class="sm-mini-card"></span></div></div>
-              </div>
-            </div>
-            <div class="card-badge badge-new">Nouveau</div>
-          </div>
-          <div class="card-body">
-            <h3>Restaurant &amp; Café</h3>
-            <p>Menu en ligne, galerie alléchante, réservation et heures d'ouverture. Idéal pour restaurants, cafés, traiteurs et food trucks.</p>
-            <div class="card-meta">
-              <span class="price">À partir de <strong>500 $</strong></span>
-              <span class="delay">⏱ 5–7 jours</span>
-            </div>
-            <a href="#contact" class="btn btn-ghost">Voir plus →</a>
-          </div>
-        </article>
-
-        <!-- Carte 3 — Portfolio Créatif -->
+        <!-- Carte 2 — Portfolio Créatif -->
         <article class="card reveal">
           <div class="card-thumb">
             <div class="site-mock sm-variant-portfolio">
@@ -242,33 +212,38 @@
             <h3>Portfolio Créatif</h3>
             <p>Mettez en valeur vos projets avec élégance. Idéal pour photographes, designers, artistes et freelances de tout domaine.</p>
             <div class="card-meta">
-              <span class="price">À partir de <strong>300 $</strong></span>
-              <span class="delay">⏱ 4–5 jours</span>
+              <span class="delay">⏱ Livré en 4–5 jours</span>
             </div>
-            <a href="#contact" class="btn btn-ghost">Voir plus →</a>
+            <a href="#contact" class="btn btn-ghost">Demander un prototype →</a>
           </div>
         </article>
 
-        <!-- Carte 4 — Boutique en ligne -->
+        <!-- Carte 3 — Blogue & Magazine -->
         <article class="card reveal">
           <div class="card-thumb">
-            <div class="site-mock">
+            <div class="site-mock sm-variant-blog">
               <div class="sm-topbar"><span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-dot"></span><span class="sm-urlbar"></span></div>
               <div class="sm-body">
-                <div class="sm-nav-bar"><span class="sm-logo-mark"></span><span class="sm-nav-items"></span><span class="sm-nav-btn sm-cart-icon"></span></div>
-                <div class="sm-hero-block sm-hero-shop"><div class="sm-title-line sm-tl-lg"></div><div class="sm-title-line sm-tl-md"></div><div class="sm-cta-mock"></div></div>
-                <div class="sm-content-rows"><div class="sm-card-row"><span class="sm-mini-card sm-product"></span><span class="sm-mini-card sm-product"></span><span class="sm-mini-card sm-product"></span></div></div>
+                <div class="sm-nav-bar"><span class="sm-logo-mark"></span><span class="sm-nav-items"></span><span class="sm-nav-btn"></span></div>
+                <div class="sm-hero-block sm-hero-slim"><div class="sm-title-line sm-tl-lg"></div><div class="sm-title-line sm-tl-md"></div></div>
+                <div class="sm-content-rows">
+                  <div class="sm-blog-rows">
+                    <span class="sm-blog-row"></span>
+                    <span class="sm-blog-row"></span>
+                    <span class="sm-blog-row"></span>
+                  </div>
+                </div>
               </div>
             </div>
+            <div class="card-badge badge-new">Nouveau</div>
           </div>
           <div class="card-body">
-            <h3>Boutique en ligne</h3>
-            <p>Catalogue produits, panier et paiement sécurisé. Idéal pour boutiques mode, artisans, créateurs et produits locaux.</p>
+            <h3>Blogue &amp; Magazine</h3>
+            <p>Publiez vos articles, partagez votre expertise et fidélisez votre audience. Idéal pour coachs, experts, journalistes et créateurs de contenu.</p>
             <div class="card-meta">
-              <span class="price">À partir de <strong>800 $</strong></span>
-              <span class="delay">⏱ 10–14 jours</span>
+              <span class="delay">⏱ Livré en 5–7 jours</span>
             </div>
-            <a href="#contact" class="btn btn-ghost">Voir plus →</a>
+            <a href="#contact" class="btn btn-ghost">Demander un prototype →</a>
           </div>
         </article>
 
@@ -285,30 +260,38 @@
         <p>Tout ce que vous attendez d'une agence professionnelle, sans les délais ni les surprises.</p>
       </div>
 
-      <div class="pourquoi-grid">
+      <div class="pourquoi-grid pourquoi-grid--4">
 
         <div class="pourquoi-card reveal">
           <div class="pq-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
           <h3>Livraison rapide</h3>
-          <p>La plupart des projets sont en ligne en moins de 10 jours. Pas de délais interminables, pas de va-et-vient sans fin.</p>
+          <p>Votre site est en ligne en 7 jours ou moins. Pas d'attente de 3 mois, pas de réunions sans fin — on livre vite et bien.</p>
         </div>
 
         <div class="pourquoi-card reveal">
           <div class="pq-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 2 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <h3>Solution clé en main</h3>
+          <p>Design, développement, hébergement, domaine et SSL — tout est inclus. Vous n'avez qu'à fournir votre contenu. On s'occupe du reste.</p>
+        </div>
+
+        <div class="pourquoi-card reveal">
+          <div class="pq-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <h3>Prix transparent</h3>
-          <p>Forfaits clairs, aucun frais caché. Vous savez exactement ce que vous obtenez avant de signer quoi que ce soit.</p>
+          <p>Aucun frais caché, aucune surprise en cours de projet. Vous savez exactement ce que vous obtenez avant de vous engager.</p>
         </div>
 
         <div class="pourquoi-card reveal">
           <div class="pq-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
           </div>
-          <h3>Fait à Montréal</h3>
-          <p>Conçu localement pour des entreprises locales. Vous parlez directement avec la personne qui crée votre site.</p>
+          <h3>Simple et abordable</h3>
+          <p>Pas besoin d'un gros budget pour avoir un site professionnel. Un processus simple, un interlocuteur unique, des résultats concrets.</p>
         </div>
 
       </div>
@@ -511,14 +494,35 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════ CTA FINALE ═══════════════════════════════════════ -->
-  <section class="section cta-finale" id="cta">
+  <!-- ═══════════════════════════════════════ PROTOTYPE GRATUIT ═══════════════════════════════════════ -->
+  <section class="section proto-section" id="prototype">
     <div class="container">
-      <div class="cta-block reveal">
-        <span class="section-label">Prêt à commencer ?</span>
-        <h2>Un site qui vous représente vraiment.</h2>
-        <p>Réponse garantie en moins de 24h. Sans engagement.</p>
-        <a href="#contact" class="btn btn-red btn-lg">Démarrer mon projet <span class="arr">→</span></a>
+      <div class="proto-block reveal">
+        <div class="badge">
+          <span class="pulse-dot" aria-hidden="true"></span>
+          Offre exclusive — sans engagement
+        </div>
+        <h2>Voyez votre site avant d'investir.</h2>
+        <p>On crée un prototype personnalisé de votre futur site web — gratuitement, en 48 heures. Vous le validez, puis vous décidez. Zéro pression.</p>
+        <div class="proto-perks">
+          <div class="proto-perk">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Prototype livré en 48h
+          </div>
+          <div class="proto-perk">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            100% personnalisé
+          </div>
+          <div class="proto-perk">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Aucun engagement
+          </div>
+          <div class="proto-perk">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Zéro frais caché
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-red btn-lg">Réclamer mon prototype gratuit <span class="arr">→</span></a>
       </div>
     </div>
   </section>
@@ -563,23 +567,12 @@
           <div class="field-group full">
             <label>Type de site désiré</label>
             <div class="checkboxes">
-              <label class="check-label"><input type="checkbox" name="siteType" value="vitrine" /><span>Site Vitrine Pro — 300 $+</span></label>
-              <label class="check-label"><input type="checkbox" name="siteType" value="restaurant" /><span>Restaurant &amp; Café — 500 $+</span></label>
-              <label class="check-label"><input type="checkbox" name="siteType" value="portfolio" /><span>Portfolio Créatif — 300 $+</span></label>
-              <label class="check-label"><input type="checkbox" name="siteType" value="boutique" /><span>Boutique en ligne — 800 $+</span></label>
+              <label class="check-label"><input type="checkbox" name="siteType" value="prototype" /><span>🎁 Prototype gratuit — je veux voir avant de décider</span></label>
+              <label class="check-label"><input type="checkbox" name="siteType" value="vitrine" /><span>Site Vitrine Pro</span></label>
+              <label class="check-label"><input type="checkbox" name="siteType" value="portfolio" /><span>Portfolio Créatif</span></label>
+              <label class="check-label"><input type="checkbox" name="siteType" value="blogue" /><span>Blogue &amp; Magazine</span></label>
               <label class="check-label"><input type="checkbox" name="siteType" value="autre" /><span>Autre / Je ne sais pas encore</span></label>
             </div>
-          </div>
-
-          <div class="field-group full">
-            <label>Budget approximatif</label>
-            <div class="budget-buttons" id="budgetButtons">
-              <button type="button" class="budget-btn" data-value="<500">Moins de 500 $</button>
-              <button type="button" class="budget-btn" data-value="500-1000">500 $ – 1 000 $</button>
-              <button type="button" class="budget-btn" data-value="1000-2500">1 000 $ – 2 500 $</button>
-              <button type="button" class="budget-btn" data-value="2500+">2 500 $ +</button>
-            </div>
-            <input type="hidden" name="budget" id="budgetValue" />
           </div>
 
           <div class="field-group full">
@@ -675,7 +668,7 @@
 
       <div class="footer-bottom">
         <p>© 2026 Laurier Web. Tous droits réservés.</p>
-        <span id="siteVersion" class="footer-version">v2.2.0</span>
+        <span id="siteVersion" class="footer-version">v2.3.0</span>
       </div>
     </div>
   </footer>
