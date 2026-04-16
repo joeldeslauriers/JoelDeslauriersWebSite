@@ -268,14 +268,15 @@ ul  { list-style: none; }
   pointer-events: none;
   user-select: none;
   z-index: 0;
-  opacity: 0.13;
+  opacity: 0.45;
 }
 .hero-wreath img {
   width: 100%;
   height: auto;
   display: block;
-  /* Fond blanc → noir, feuilles sombres → vert clair */
-  filter: invert(1) hue-rotate(100deg) saturate(3) brightness(0.85);
+  /* invert: fond blanc→noir (disparaît via screen), feuilles→vert lumineux */
+  filter: invert(1) hue-rotate(100deg) saturate(4) brightness(1.4);
+  mix-blend-mode: screen;
 }
 
 /* Canvas particules */
