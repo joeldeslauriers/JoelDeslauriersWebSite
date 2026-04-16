@@ -146,7 +146,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ─────────────────────────────────
-     4. FEUILLES DE LAURIER HERO
+     4. SPOTLIGHT CARDS (Modèles)
+  ───────────────────────────────── */
+  const spotCards = document.querySelectorAll('.cards-grid--3 .card');
+
+  spotCards.forEach(card => {
+    card.addEventListener('pointermove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--sx', `${(e.clientX - r.left).toFixed(1)}px`);
+      card.style.setProperty('--sy', `${(e.clientY - r.top).toFixed(1)}px`);
+    });
+    card.addEventListener('pointerenter', () => card.classList.add('spotlight-on'));
+    card.addEventListener('pointerleave', () => {
+      card.classList.remove('spotlight-on');
+      card.style.setProperty('--sx', '-500px');
+      card.style.setProperty('--sy', '-500px');
+    });
+  });
+
+
+  /* ─────────────────────────────────
+     5. FEUILLES DE LAURIER HERO
   ───────────────────────────────── */
   const leavesContainer = document.getElementById('heroLeaves');
   if (leavesContainer) {
@@ -222,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ─────────────────────────────────
-     4. SCROLL REVEAL
+     6. SCROLL REVEAL
   ───────────────────────────────── */
   const revealEls = document.querySelectorAll('.reveal');
 
@@ -245,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ─────────────────────────────────
-     5. COMPTEURS ANIMÉS (hero stats)
+     7. COMPTEURS ANIMÉS (hero stats)
   ───────────────────────────────── */
   const counters = document.querySelectorAll('[data-counter]');
 
@@ -277,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ─────────────────────────────────
-     6. CURSEUR CUSTOM
+     8. CURSEUR CUSTOM
   ───────────────────────────────── */
   const cursor    = document.getElementById('cursor');
   const cursorDot = document.getElementById('cursorDot');
@@ -320,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ─────────────────────────────────
-     7. BUDGET BUTTONS
+     9. BUDGET BUTTONS
   ───────────────────────────────── */
   const budgetBtns  = document.querySelectorAll('.budget-btn');
   const budgetValue = document.getElementById('budgetValue');
@@ -337,7 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ─────────────────────────────────
-     8. FORMULAIRE — validation + succès
+     10. FORMULAIRE — validation + succès
   ───────────────────────────────── */
   const form       = document.getElementById('contactForm');
   const submitBtn  = document.getElementById('submitBtn');
@@ -411,7 +431,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ─────────────────────────────────
-     9. SMOOTH SCROLL liens internes
+     11. SMOOTH SCROLL liens internes
   ───────────────────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

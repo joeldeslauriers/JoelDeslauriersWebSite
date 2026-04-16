@@ -638,6 +638,7 @@ ul  { list-style: none; }
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
+  position: relative;
   transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
 }
 .card:hover {
@@ -645,6 +646,55 @@ ul  { list-style: none; }
   border-color: rgba(76,175,80,0.28);
   box-shadow: 0 12px 40px rgba(0,0,0,0.4), var(--shadow-glow);
 }
+
+/* ── Spotlight glow (cursor follow) ── */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    320px circle at var(--sx, -500px) var(--sy, -500px),
+    rgba(76,175,80,0.13),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.card.spotlight-on::before { opacity: 1; }
+
+/* Border spotlight (mask trick — colonne séparée pour éviter overflow) */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    200px circle at var(--sx, -500px) var(--sy, -500px),
+    rgba(76,175,80,0.6),
+    transparent 70%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.card.spotlight-on::after { opacity: 1; }
+
+/* S'assurer que le contenu passe au-dessus de l'overlay */
+.card-thumb,
+.card-body { position: relative; z-index: 1; }
 
 /* ── Miniature CSS ── */
 .card-thumb {
