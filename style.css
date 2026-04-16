@@ -256,40 +256,40 @@ ul  { list-style: none; }
   background-size: 60px 60px;
 }
 
-/* Gradient radial central — effet "lumière" */
+/* Lueur verte gauche — effet "source de lumière" */
 .hero::before {
   content: '';
   position: absolute;
-  top: -20%;
-  left: 35%;
-  width: 60%;
-  height: 100%;
-  background: radial-gradient(ellipse at center, rgba(76,175,80,0.07) 0%, transparent 65%);
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(ellipse at center,
+    rgba(76,175,80,0.13) 0%,
+    rgba(76,175,80,0.04) 40%,
+    transparent 70%);
   pointer-events: none;
+  z-index: 0;
 }
 
-/* Couronne de laurier — fond subtil */
-.hero-wreath {
+/* Lueur verte droite — profondeur */
+.hero::after {
+  content: '';
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90vw;
-  max-width: 1100px;
-  min-width: 480px;
+  top: 20%;
+  right: 5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(ellipse at center,
+    rgba(76,175,80,0.07) 0%,
+    transparent 65%);
   pointer-events: none;
-  user-select: none;
   z-index: 0;
-  opacity: 0.45;
 }
-.hero-wreath img {
-  width: 100%;
-  height: auto;
-  display: block;
-  /* invert: fond blanc→noir (disparaît via screen), feuilles→vert lumineux */
-  filter: invert(1) hue-rotate(100deg) saturate(4) brightness(1.4);
-  mix-blend-mode: screen;
-}
+
+/* Couronne de laurier — fond subtil (désactivé: back.png a fond blanc) */
+.hero-wreath { display: none; }
 
 /* Canvas particules */
 .hero-canvas {
