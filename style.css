@@ -184,6 +184,7 @@ ul  { list-style: none; }
   margin: 0 auto;
   padding: 0 32px;
   gap: 48px;
+  position: relative;
 }
 
 .logo { flex-shrink: 0; display: flex; align-items: center; }
@@ -199,9 +200,49 @@ ul  { list-style: none; }
   font-weight: 500;
   letter-spacing: 0.01em;
   color: var(--text-muted);
-  transition: color var(--transition);
+  transition: color var(--transition), opacity var(--transition);
 }
 .nav-links a:hover { color: var(--text); }
+
+/* Limelight — barre lumineuse + cône qui suit le curseur */
+.nav-limelight {
+  position: absolute;
+  bottom: 0;
+  left: -999px;
+  width: 44px;
+  height: 3px;
+  border-radius: 9999px;
+  background: var(--red);
+  box-shadow:
+    0 0 8px  rgba(76,175,80,0.95),
+    0 0 22px rgba(76,175,80,0.55),
+    0 0 40px rgba(76,175,80,0.25);
+  transform: translateX(-50%);
+  opacity: 0;
+  transition:
+    left    0.32s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.22s ease;
+  pointer-events: none;
+  z-index: 20;
+}
+.nav-limelight.ll-on { opacity: 1; }
+
+.nav-limelight-cone {
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130px;
+  height: 52px;
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+  background: linear-gradient(to bottom, rgba(76,175,80,0.22), transparent);
+  pointer-events: none;
+}
+
+/* Dim inactive links quand un est survolé */
+.nav-links.ll-active a { opacity: 0.45; color: var(--text-muted); }
+.nav-links.ll-active a:hover,
+.nav-links.ll-active a.ll-focus { opacity: 1; color: var(--text); }
 
 .nav-version {
   font-family: var(--font-body);

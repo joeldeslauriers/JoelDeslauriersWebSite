@@ -146,7 +146,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ─────────────────────────────────
-     4. SPOTLIGHT CARDS (Modèles)
+     4. LIMELIGHT NAVBAR
+  ───────────────────────────────── */
+  const limelight   = document.getElementById('navLimelight');
+  const navInnerEl  = document.querySelector('.nav-inner');
+  const navLinkList = document.querySelector('.nav-links');
+  const navAnchors  = document.querySelectorAll('.nav-links a');
+
+  if (limelight && navInnerEl && navAnchors.length) {
+    function moveLimelight(anchor) {
+      const iRect = navInnerEl.getBoundingClientRect();
+      const aRect = anchor.getBoundingClientRect();
+      const cx    = aRect.left - iRect.left + aRect.width / 2;
+      limelight.style.left = cx + 'px';
+      limelight.classList.add('ll-on');
+    }
+
+    navAnchors.forEach(a => {
+      a.addEventListener('mouseenter', () => {
+        navLinkList.classList.add('ll-active');
+        navAnchors.forEach(l => l.classList.remove('ll-focus'));
+        a.classList.add('ll-focus');
+        moveLimelight(a);
+      });
+    });
+
+    navInnerEl.addEventListener('mouseleave', e => {
+      if (!navInnerEl.contains(e.relatedTarget)) {
+        limelight.classList.remove('ll-on');
+        navLinkList.classList.remove('ll-active');
+        navAnchors.forEach(l => l.classList.remove('ll-focus'));
+      }
+    });
+  }
+
+
+  /* ─────────────────────────────────
+     5. SPOTLIGHT CARDS (Modèles)
   ───────────────────────────────── */
   const spotCards = document.querySelectorAll('.cards-grid--3 .card');
 
