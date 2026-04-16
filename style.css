@@ -723,7 +723,7 @@ ul  { list-style: none; }
   position: relative;
 }
 .card-thumb:has(.card-thumb-img) {
-  height: 280px;
+  height: 340px;
   padding: 0;
 }
 .card-thumb-img {
