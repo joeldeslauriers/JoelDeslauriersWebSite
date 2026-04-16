@@ -203,6 +203,18 @@ ul  { list-style: none; }
 }
 .nav-links a:hover { color: var(--text); }
 
+.nav-version {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--red);
+  opacity: 0.55;
+  margin-left: auto;
+  padding-right: 12px;
+  user-select: none;
+}
+
 .nav-cta {
   margin-left: 8px;
   padding: 9px 20px;
