@@ -187,7 +187,7 @@ ul  { list-style: none; }
 }
 
 .logo { flex-shrink: 0; display: flex; align-items: center; }
-.logo-image { height: 120px; width: auto; display: block; }
+.logo-image { height: 135px; width: auto; display: block; }
 
 .nav-links {
   display: flex;
