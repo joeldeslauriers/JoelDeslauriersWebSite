@@ -1438,6 +1438,31 @@ textarea { resize: vertical; min-height: 120px; line-height: 1.7; }
 /* ═══════════════════════════════════
    FOOTER
 ═══════════════════════════════════ */
+/* ── Zones desservies ── */
+.zones-section { border-top: 1px solid var(--border); }
+.zones-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.zone-group-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 14px;
+}
+.zone-group ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.zone-group ul li a {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color .2s;
+}
+.zone-group ul li a:hover { color: var(--red); }
+@media (max-width: 768px) { .zones-grid { grid-template-columns: 1fr; gap: 28px; } }
+
 .footer {
   background: var(--bg-2);
   border-top: 1px solid var(--border);
