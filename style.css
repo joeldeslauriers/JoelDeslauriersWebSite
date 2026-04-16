@@ -256,6 +256,30 @@ ul  { list-style: none; }
   pointer-events: none;
 }
 
+/* Couronne de laurier — fond subtil */
+.hero-wreath {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 88vw;
+  max-width: 1080px;
+  min-width: 480px;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  /* Rendre l'image sombre pour fondre sur fond dark */
+  opacity: 0.055;
+  mix-blend-mode: screen;
+}
+.hero-wreath img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* Inverser + teinter en vert laurier */
+  filter: invert(1) hue-rotate(105deg) saturate(2.5) brightness(0.9);
+}
+
 /* Canvas particules */
 .hero-canvas {
   position: absolute;
