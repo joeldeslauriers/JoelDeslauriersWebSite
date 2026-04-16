@@ -606,11 +606,11 @@ ul  { list-style: none; }
   opacity: 0.4;
 }
 .section-label.light {
-  color: var(--text-muted);
+  color: var(--text);
 }
 .section-label.light::before,
 .section-label.light::after {
-  background: var(--text-muted);
+  background: var(--text);
 }
 
 .section-head h2 {
