@@ -71,31 +71,7 @@ ul  { list-style: none; }
 /* ═══════════════════════════════════
    CURSEUR CUSTOM
 ═══════════════════════════════════ */
-.cursor {
-  position: fixed;
-  width: 30px; height: 30px;
-  border: 1.5px solid rgba(76,175,80,0.4);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  will-change: transform;
-  transition: width .2s, height .2s, background .2s, border-color .2s;
-}
-.cursor.hovered {
-  width: 46px; height: 46px;
-  border-color: var(--red);
-  background: rgba(76,175,80,0.06);
-}
-.cursor-dot {
-  position: fixed;
-  width: 5px; height: 5px;
-  background: var(--red);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 10000;
-  will-change: transform;
-}
-@media (pointer: coarse) { .cursor, .cursor-dot { display: none; } }
+.cursor, .cursor-dot { display: none; }
 
 /* ═══════════════════════════════════
    BOUTONS
@@ -1470,7 +1446,7 @@ textarea { resize: vertical; min-height: 120px; line-height: 1.7; }
 }
 
 .footer-brand { display: flex; flex-direction: column; gap: 14px; }
-.footer-logo .logo-image { height: 80px; }
+.footer-logo .logo-image { height: 120px; }
 .footer-tagline {
   font-size: 0.875rem;
   font-weight: 400;
