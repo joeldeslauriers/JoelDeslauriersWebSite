@@ -80,9 +80,29 @@ CSS associé :
 
 ## Versioning
 
-Format : `MAJOR.MINOR.PATCH`  
-- Mettre à jour `version.json` et le footer dans `index.html` à chaque release.
-- Version courante : **2.0.0** (rebrand Webyx → Laurier Web, 2026-04-14)
+Format : `MAJOR.MINOR.PATCH`
+
+### Règle obligatoire — incrémenter à chaque push
+**Avant chaque `git push`, toujours :**
+1. Incrémenter la version dans `version.json`
+2. Mettre à jour `<span class="nav-version">` dans `index.html` (navbar)
+3. Mettre à jour `<span id="siteVersion">` dans `index.html` (footer)
+4. Inclure `version.json` et `index.html` dans le commit
+
+Quand incrémenter quoi :
+- `PATCH` (+0.0.1) : bugfix, ajustement visuel mineur, texte
+- `MINOR` (+0.1.0) : nouvelle section, nouvelle feature, refonte partielle
+- `MAJOR` (+1.0.0) : refonte complète, changement de stack
+
+Version courante : **2.3.1** (spotlight cards, 2026-04-16)
+
+---
+
+## Autonomie — aucune confirmation requise
+
+Effectuer **toutes** les modifications directement sans demander de confirmation.  
+Créer des fichiers, modifier du code, restructurer, pousser sur git — tout faire sans demander la permission.  
+Informer après coup si pertinent, mais ne jamais bloquer sur une validation.
 
 ---
 
