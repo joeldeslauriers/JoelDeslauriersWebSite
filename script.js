@@ -1,33 +1,32 @@
 /* ═══════════════════════════════════════════════════════════════
-   LAURIER WEB — script.js
-   · Navbar scroll effect
-   · Burger menu (mobile)
+   LAURIER WEB — script.js  v2.2.0
+   · Navbar scroll
+   · Burger menu
+   · Canvas particules
    · Scroll reveal (IntersectionObserver)
-   · Budget buttons toggle
-   · Form validation + success message
+   · Compteurs animés
+   · Curseur custom
+   · Budget buttons
+   · Form validation
+   · Smooth scroll
 ═══════════════════════════════════════════════════════════════ */
 
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ─────────────────────────────────
-     1. NAVBAR — effet au scroll
+     1. NAVBAR — scroll effect
   ───────────────────────────────── */
   const navbar = document.getElementById('navbar');
 
   const handleNavScroll = () => {
-    if (window.scrollY > 30) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
+    navbar.classList.toggle('scrolled', window.scrollY > 30);
   };
-
   window.addEventListener('scroll', handleNavScroll, { passive: true });
-  handleNavScroll(); // état initial
+  handleNavScroll();
 
 
   /* ─────────────────────────────────
-     2. BURGER MENU (mobile)
+     2. BURGER MENU
   ───────────────────────────────── */
   const burger   = document.getElementById('burger');
   const navLinks = document.getElementById('navLinks');
@@ -36,11 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const isOpen = navLinks.classList.toggle('open');
     burger.classList.toggle('open', isOpen);
     burger.setAttribute('aria-expanded', isOpen);
-    // Empêche le scroll du body quand menu ouvert
     document.body.style.overflow = isOpen ? 'hidden' : '';
   });
 
-  // Fermer le menu en cliquant un lien
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('open');
@@ -50,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Fermer en cliquant en dehors
   document.addEventListener('click', (e) => {
     if (navLinks.classList.contains('open') &&
         !navLinks.contains(e.target) &&
@@ -63,164 +59,279 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ─────────────────────────────────
-     3. SCROLL REVEAL
+     3. CANVAS PARTICULES HERO
   ───────────────────────────────── */
-  const revealElements = document.querySelectorAll('.reveal');
+  const canvas = document.getElementById('heroCanvas');
 
-  if ('IntersectionObserver' in window) {
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            revealObserver.unobserve(entry.target); // une seule fois
-          }
-        });
-      },
-      {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px'
-      }
-    );
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let W, H, particles, rafId;
 
-    revealElements.forEach(el => revealObserver.observe(el));
-  } else {
-    // Fallback : tout afficher directement
-    revealElements.forEach(el => el.classList.add('visible'));
+    const resize = () => {
+      W = canvas.width  = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+    };
+
+    const createParticles = () => {
+      const count = Math.min(Math.floor((W * H) / 14000), 80);
+      particles = Array.from({ length: count }, () => ({
+        x:  Math.random() * W,
+        y:  Math.random() * H,
+        r:  Math.random() * 1.4 + 0.4,
+        vx: (Math.random() - 0.5) * 0.28,
+        vy: (Math.random() - 0.5) * 0.28,
+        a:  Math.random() * 0.35 + 0.07
+      }));
+    };
+
+    const draw = () => {
+      ctx.clearRect(0, 0, W, H);
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0) p.x = W;
+        if (p.x > W) p.x = 0;
+        if (p.y < 0) p.y = H;
+        if (p.y > H) p.y = 0;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(76,175,80,${p.a})`;
+        ctx.fill();
+      });
+      rafId = requestAnimationFrame(draw);
+    };
+
+    const handleResize = () => {
+      resize();
+      createParticles();
+    };
+
+    window.addEventListener('resize', handleResize, { passive: true });
+    resize();
+    createParticles();
+    draw();
+
+    // Suspendre quand le canvas n'est plus visible (performance)
+    const canvasObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          if (!rafId) draw();
+        } else {
+          cancelAnimationFrame(rafId);
+          rafId = null;
+        }
+      });
+    });
+    canvasObserver.observe(canvas);
   }
 
 
   /* ─────────────────────────────────
-     4. BUDGET BUTTONS — sélection active
+     4. SCROLL REVEAL
   ───────────────────────────────── */
-  const budgetButtons  = document.querySelectorAll('.budget-btn');
-  const budgetValue    = document.getElementById('budgetValue');
+  const revealEls = document.querySelectorAll('.reveal');
 
-  budgetButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Désactiver les autres
-      budgetButtons.forEach(b => b.classList.remove('active'));
-      // Activer le bouton cliqué
-      btn.classList.add('active');
-      // Stocker la valeur dans le champ caché
-      budgetValue.value = btn.dataset.value;
+  if ('IntersectionObserver' in window) {
+    const revealObs = new IntersectionObserver(
+      entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            revealObs.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    revealEls.forEach(el => revealObs.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('visible'));
+  }
+
+
+  /* ─────────────────────────────────
+     5. COMPTEURS ANIMÉS (hero stats)
+  ───────────────────────────────── */
+  const counters = document.querySelectorAll('[data-counter]');
+
+  if (counters.length && 'IntersectionObserver' in window) {
+    const counterObs = new IntersectionObserver(
+      entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          const el     = e.target;
+          const target = parseInt(el.dataset.counter, 10);
+          const dur    = 1800;
+          const start  = performance.now();
+
+          const tick = (now) => {
+            const progress = Math.min((now - start) / dur, 1);
+            const eased    = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(eased * target);
+            if (progress < 1) requestAnimationFrame(tick);
+          };
+
+          requestAnimationFrame(tick);
+          counterObs.unobserve(el);
+        });
+      },
+      { threshold: 0.6 }
+    );
+    counters.forEach(el => counterObs.observe(el));
+  }
+
+
+  /* ─────────────────────────────────
+     6. CURSEUR CUSTOM
+  ───────────────────────────────── */
+  const cursor    = document.getElementById('cursor');
+  const cursorDot = document.getElementById('cursorDot');
+
+  // Skip sur écrans tactiles
+  if (cursor && cursorDot && !window.matchMedia('(pointer: coarse)').matches) {
+    let mx = -100, my = -100;
+    let cx = -100, cy = -100;
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX;
+      my = e.clientY;
+      cursorDot.style.transform = `translate(${mx - 3}px, ${my - 3}px)`;
     });
-  });
+
+    const animCursor = () => {
+      cx += (mx - cx) * 0.1;
+      cy += (my - cy) * 0.1;
+      cursor.style.transform = `translate(${cx - 16}px, ${cy - 16}px)`;
+      requestAnimationFrame(animCursor);
+    };
+    animCursor();
+
+    const hoverTargets = 'a, button, .card, .temo-card, .pourquoi-card, .budget-btn, .check-label, .feature-card';
+    document.querySelectorAll(hoverTargets).forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+    });
+
+    // Masquer quand la souris quitte la fenêtre
+    document.addEventListener('mouseleave', () => {
+      cursor.style.opacity    = '0';
+      cursorDot.style.opacity = '0';
+    });
+    document.addEventListener('mouseenter', () => {
+      cursor.style.opacity    = '1';
+      cursorDot.style.opacity = '1';
+    });
+  }
 
 
   /* ─────────────────────────────────
-     5. FORMULAIRE — validation + succès
+     7. BUDGET BUTTONS
   ───────────────────────────────── */
-  const form        = document.getElementById('contactForm');
-  const submitBtn   = document.getElementById('submitBtn');
-  const successMsg  = document.getElementById('successMsg');
+  const budgetBtns  = document.querySelectorAll('.budget-btn');
+  const budgetValue = document.getElementById('budgetValue');
 
-  // Helpers
-  const getEl  = id => document.getElementById(id);
-  const showErr = (inputId, errId, msg) => {
-    const input = getEl(inputId);
-    const err   = getEl(errId);
-    if (input && err) {
-      input.classList.add('error');
-      err.textContent = msg;
-    }
-  };
-  const clearErr = (inputId, errId) => {
-    const input = getEl(inputId);
-    const err   = getEl(errId);
-    if (input && err) {
-      input.classList.remove('error');
-      err.textContent = '';
-    }
-  };
-
-  const isValidEmail = email =>
-    /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim());
-
-  // Validation live (enlève l'erreur dès que le champ est valide)
-  getEl('firstName').addEventListener('input', function () {
-    if (this.value.trim().length >= 2) clearErr('firstName', 'firstNameError');
-  });
-  getEl('email').addEventListener('input', function () {
-    if (isValidEmail(this.value)) clearErr('email', 'emailError');
-  });
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    let valid = true;
-
-    // Réinitialiser les erreurs
-    clearErr('firstName', 'firstNameError');
-    clearErr('email', 'emailError');
-
-    // Validation prénom
-    const firstName = getEl('firstName').value.trim();
-    if (firstName.length < 2) {
-      showErr('firstName', 'firstNameError', 'Veuillez entrer votre prénom.');
-      valid = false;
-    }
-
-    // Validation courriel
-    const email = getEl('email').value.trim();
-    if (!email) {
-      showErr('email', 'emailError', 'Veuillez entrer votre courriel.');
-      valid = false;
-    } else if (!isValidEmail(email)) {
-      showErr('email', 'emailError', 'Courriel invalide (ex. : nom@domaine.com).');
-      valid = false;
-    }
-
-    if (!valid) {
-      // Scroll vers le premier champ en erreur
-      const firstError = form.querySelector('.error');
-      if (firstError) {
-        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        firstError.focus();
-      }
-      return;
-    }
-
-    // ── Simulation envoi (remplacer par Formspree / fetch réel) ──
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Envoi en cours...';
-
-    setTimeout(() => {
-      // Afficher le message de succès
-      successMsg.hidden = false;
-      successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
-      // Réinitialiser le formulaire
-      form.reset();
-      budgetButtons.forEach(b => b.classList.remove('active'));
-      budgetValue.value = '';
-
-      // Rétablir le bouton
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = 'Envoyer ma demande <span class="arr">→</span>';
-
-      // Masquer le message de succès après 8s
-      setTimeout(() => {
-        successMsg.hidden = true;
-      }, 8000);
-    }, 800); // délai simulé 800ms
-  });
+  if (budgetBtns.length && budgetValue) {
+    budgetBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        budgetBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        budgetValue.value = btn.dataset.value;
+      });
+    });
+  }
 
 
   /* ─────────────────────────────────
-     6. SMOOTH SCROLL pour les liens internes
-        (complément à scroll-behavior: smooth)
+     8. FORMULAIRE — validation + succès
+  ───────────────────────────────── */
+  const form       = document.getElementById('contactForm');
+  const submitBtn  = document.getElementById('submitBtn');
+  const successMsg = document.getElementById('successMsg');
+
+  if (form) {
+    const getEl   = id => document.getElementById(id);
+    const showErr = (inputId, errId, msg) => {
+      getEl(inputId)?.classList.add('error');
+      const err = getEl(errId);
+      if (err) err.textContent = msg;
+    };
+    const clearErr = (inputId, errId) => {
+      getEl(inputId)?.classList.remove('error');
+      const err = getEl(errId);
+      if (err) err.textContent = '';
+    };
+    const isValidEmail = email => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.trim());
+
+    getEl('firstName').addEventListener('input', function () {
+      if (this.value.trim().length >= 2) clearErr('firstName', 'firstNameError');
+    });
+    getEl('email').addEventListener('input', function () {
+      if (isValidEmail(this.value)) clearErr('email', 'emailError');
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let valid = true;
+
+      clearErr('firstName', 'firstNameError');
+      clearErr('email', 'emailError');
+
+      const firstName = getEl('firstName').value.trim();
+      if (firstName.length < 2) {
+        showErr('firstName', 'firstNameError', 'Veuillez entrer votre prénom.');
+        valid = false;
+      }
+
+      const email = getEl('email').value.trim();
+      if (!email) {
+        showErr('email', 'emailError', 'Veuillez entrer votre courriel.');
+        valid = false;
+      } else if (!isValidEmail(email)) {
+        showErr('email', 'emailError', 'Courriel invalide (ex. : nom@domaine.com).');
+        valid = false;
+      }
+
+      if (!valid) {
+        form.querySelector('.error')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        form.querySelector('.error')?.focus();
+        return;
+      }
+
+      // Simulation envoi (remplacer par Formspree)
+      submitBtn.disabled    = true;
+      submitBtn.textContent = 'Envoi en cours…';
+
+      setTimeout(() => {
+        successMsg.hidden = false;
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        form.reset();
+        budgetBtns.forEach(b => b.classList.remove('active'));
+        if (budgetValue) budgetValue.value = '';
+        submitBtn.disabled    = false;
+        submitBtn.innerHTML   = 'Envoyer ma demande <span class="arr">→</span>';
+        setTimeout(() => { successMsg.hidden = true; }, 8000);
+      }, 800);
+    });
+  }
+
+
+  /* ─────────────────────────────────
+     9. SMOOTH SCROLL liens internes
   ───────────────────────────────── */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      const target = document.querySelector(targetId);
+      const id = this.getAttribute('href');
+      if (id === '#') return;
+      const target = document.querySelector(id);
       if (target) {
         e.preventDefault();
-        const offset = parseInt(getComputedStyle(document.documentElement)
-          .getPropertyValue('--nav-h')) || 72;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
+        const offset = parseInt(
+          getComputedStyle(document.documentElement).getPropertyValue('--nav-h')
+        ) || 72;
+        window.scrollTo({
+          top: target.getBoundingClientRect().top + window.scrollY - offset,
+          behavior: 'smooth'
+        });
       }
     });
   });

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175 38" role="img" aria-label="Laurier Web">
+  <title>Laurier Web</title>
+  <!-- Feuille de laurier -->
+  <path d="M11 2C7 4 3.5 8.5 3.5 14C3.5 19.5 7 24 11 25.5C11 25.5 11 12 20.5 6C17 3.5 14 2 11 2Z" fill="#4CAF50"/>
+  <path d="M11 2C15 4 18.5 8.5 18.5 14C18.5 19.5 15 24 11 25.5C11 25.5 11 12 1.5 6C5 3.5 8 2 11 2Z" fill="#4CAF50" opacity="0.45"/>
+  <line x1="11" y1="25.5" x2="11" y2="34" stroke="#4CAF50" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="7" y1="15" x2="15" y2="15" stroke="rgba(255,255,255,0.18)" stroke-width="0.8" stroke-linecap="round"/>
+  <!-- Laurier -->
+  <text x="30" y="27"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="22"
+    font-weight="700"
+    fill="#F5F5F5"
+    letter-spacing="-0.3">Laurier</text>
+  <!-- Web -->
+  <text x="127" y="27"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="22"
+    font-weight="700"
+    fill="#4CAF50"
+    letter-spacing="-0.3">Web</text>
+</svg>
