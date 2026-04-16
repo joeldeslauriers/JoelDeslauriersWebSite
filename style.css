@@ -647,7 +647,7 @@ ul  { list-style: none; }
 }
 .cards-grid--3 {
   grid-template-columns: repeat(3,1fr);
-  max-width: 1080px;
+  max-width: 1280px;
   margin-inline: auto;
 }
 
@@ -723,7 +723,7 @@ ul  { list-style: none; }
   position: relative;
 }
 .card-thumb:has(.card-thumb-img) {
-  height: 220px;
+  height: 280px;
   padding: 0;
 }
 .card-thumb-img {
