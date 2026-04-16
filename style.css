@@ -722,12 +722,16 @@ ul  { list-style: none; }
   overflow: hidden;
   position: relative;
 }
+.card-thumb:has(.card-thumb-img) {
+  height: 220px;
+  padding: 0;
+}
 .card-thumb-img {
   width: 100%; height: 100%;
   object-fit: cover;
   object-position: top;
   display: block;
-  border-radius: 4px;
+  image-rendering: -webkit-optimize-contrast;
 }
 .site-mock {
   width: 100%; height: 100%;
