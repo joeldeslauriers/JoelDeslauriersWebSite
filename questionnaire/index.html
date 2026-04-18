@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulaire de projet — Laurier Web</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="/assets/images/Favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0A1128;
+      --bg-2:     #0D1535;
+      --surface:  #132042;
+      --surface-2:#1a2a55;
+      --border:   rgba(255,255,255,0.08);
+      --red:      #4CAF50;
+      --red-hover:#2E7D32;
+      --text:     #F0F0F0;
+      --text-muted:#888888;
+      --radius:   12px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0 0 60px;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: var(--bg-2);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+      text-align: center;
+    }
+    .header a { text-decoration: none; }
+    .header-logo { height: 60px; width: auto; }
+    .header-sub {
+      margin-top: 8px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Container ── */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ── Intro ── */
+    .intro {
+      margin: 40px 0 32px;
+      padding: 24px 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      border-left: 3px solid var(--red);
+    }
+    .intro p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ── Section ── */
+    .section-block {
+      margin-bottom: 36px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .section-title {
+      background: var(--bg-2);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+    .section-body { padding: 24px; display: flex; flex-direction: column; gap: 20px; }
+
+    /* ── Field ── */
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .field .hint {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: -2px;
+    }
+    .req { color: var(--red); margin-left: 2px; }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    textarea {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      padding: 10px 14px;
+      width: 100%;
+      transition: border-color .2s;
+      outline: none;
+    }
+    input:focus, textarea:focus {
+      border-color: rgba(76,175,80,0.5);
+    }
+    textarea { resize: vertical; min-height: 100px; }
+
+    /* ── Checkboxes & Radios ── */
+    .check-group { display: flex; flex-direction: column; gap: 10px; }
+    .check-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .check-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      line-height: 1.4;
+    }
+    .check-label input[type="checkbox"],
+    .check-label input[type="radio"] {
+      width: 16px; height: 16px;
+      margin-top: 2px;
+      accent-color: var(--red);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .check-label:hover { color: var(--text); }
+
+    /* ── Info box ── */
+    .info-box {
+      background: rgba(76,175,80,0.06);
+      border: 1px solid rgba(76,175,80,0.18);
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+    .info-box strong { color: var(--text); display: block; margin-bottom: 4px; }
+
+    /* ── Two columns ── */
+    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 600px) { .row-2 { grid-template-columns: 1fr; } }
+
+    /* ── Submit ── */
+    .submit-wrap { text-align: center; margin-top: 12px; }
+    .btn-submit {
+      background: var(--red);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 14px 40px;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+      letter-spacing: 0.02em;
+    }
+    .btn-submit:hover { background: var(--red-hover); transform: translateY(-1px); }
+
+    .success-msg {
+      margin-top: 20px;
+      padding: 16px 20px;
+      background: rgba(76,175,80,0.1);
+      border: 1px solid rgba(76,175,80,0.3);
+      border-radius: 8px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--red);
+    }
+
+    /* ── Footer ── */
+    .footer-note {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .footer-note a { color: var(--red); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <a href="https://laurierweb.ca">
+      <img src="/assets/images/LogoTransparent.png" alt="Laurier Web" class="header-logo" />
+    </a>
+    <p class="header-sub">Formulaire de projet · À remplir et retourner par courriel</p>
+  </div>
+
+  <div class="container">
+
+    <div class="intro">
+      <p>Merci de prendre le temps de remplir ce formulaire. Ces informations m'aideront à concevoir un site web qui correspond parfaitement à vos besoins. Une fois complété, retournez-le par courriel à <strong style="color:var(--text)">LaurierWeb@gmail.com</strong>.</p>
+    </div>
+
+    <form id="questionnaireForm">
+      <input type="hidden" name="access_key" value="82fbe916-3d05-4187-922a-3287a5920ef7" />
+      <input type="hidden" name="subject" value="Questionnaire de projet — Laurier Web" />
+      <input type="hidden" name="from_name" value="Laurier Web Questionnaire" />
+
+      <!-- 1. Informations de contact -->
+      <div class="section-block">
+        <div class="section-title">1. Informations de contact</div>
+        <div class="section-body">
+          <div class="row-2">
+            <div class="field">
+              <label>Prénom et nom <span class="req">*</span></label>
+              <input type="text" name="nom" placeholder="Joël Tremblay" required />
+            </div>
+            <div class="field">
+              <label>Téléphone <span class="req">*</span></label>
+              <input type="tel" name="telephone" placeholder="514 000-0000" required />
+            </div>
+          </div>
+          <div class="row-2">
+            <div class="field">
+              <label>Courriel <span class="req">*</span></label>
+              <input type="email" name="courriel" placeholder="vous@exemple.com" required />
+            </div>
+            <div class="field">
+              <label>Nom de l'entreprise <span class="req">*</span></label>
+              <input type="text" name="entreprise" placeholder="Mon Entreprise Inc." required />
+            </div>
+          </div>
+          <div class="row-2">
+            <div class="field">
+              <label>Ville / Région <span class="req">*</span></label>
+              <input type="text" name="ville" placeholder="Mirabel, Rive-Nord..." required />
+            </div>
+            <div class="field">
+              <label>Type d'entreprise / domaine d'activité <span class="req">*</span></label>
+              <input type="text" name="domaine" placeholder="Salon de coiffure, Notaire, Électricien..." required />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Votre site web -->
+      <div class="section-block">
+        <div class="section-title">2. Votre site web</div>
+        <div class="section-body">
+          <div class="field">
+            <label>Avez-vous déjà un site web ?</label>
+            <div class="check-group">
+              <label class="check-label"><input type="radio" name="site_existant" value="non" /> Non, c'est mon premier site</label>
+              <label class="check-label"><input type="radio" name="site_existant" value="refaire" /> Oui, je veux le refaire complètement</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Si oui — URL de votre site actuel</label>
+            <input type="url" name="url_actuel" placeholder="https://www.monsite.com" />
+          </div>
+          <div class="field">
+            <label>Quel type de site souhaitez-vous ?</label>
+            <div class="check-group">
+              <label class="check-label"><input type="radio" name="type_site" value="vitrine" /> Site vitrine (présenter mes services)</label>
+              <label class="check-label"><input type="radio" name="type_site" value="portfolio" /> Portfolio (galerie de mes réalisations)</label>
+              <label class="check-label"><input type="radio" name="type_site" value="rdv" /> Site avec prise de rendez-vous</label>
+              <label class="check-label"><input type="radio" name="type_site" value="restaurant" /> Restaurant / café (menu, heures)</label>
+              <label class="check-label"><input type="radio" name="type_site" value="boutique" /> Boutique en ligne (vente de produits)</label>
+              <label class="check-label"><input type="radio" name="type_site" value="sais_pas" /> Je ne sais pas encore</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Fonctionnalités souhaitées</label>
+            <div class="check-row">
+              <label class="check-label"><input type="checkbox" name="fonc_contact" value="oui" /> Formulaire de contact</label>
+              <label class="check-label"><input type="checkbox" name="fonc_maps" value="oui" /> Carte Google Maps</label>
+              <label class="check-label"><input type="checkbox" name="fonc_blog" value="oui" /> Blog / actualités</label>
+              <label class="check-label"><input type="checkbox" name="fonc_galerie" value="oui" /> Galerie de photos</label>
+              <label class="check-label"><input type="checkbox" name="fonc_rdv" value="oui" /> Prise de rendez-vous en ligne</label>
+              <label class="check-label"><input type="checkbox" name="fonc_bilingue" value="oui" /> Site bilingue (fr/en)</label>
+              <label class="check-label"><input type="checkbox" name="fonc_aucune" value="oui" /> Aucune fonctionnalité spéciale</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Contenu & matériel -->
+      <div class="section-block">
+        <div class="section-title">3. Contenu &amp; matériel disponible</div>
+        <div class="section-body">
+          <div class="field">
+            <label>Avez-vous un logo ?</label>
+            <div class="check-group">
+              <label class="check-label"><input type="radio" name="logo" value="oui" /> Oui, j'ai un logo prêt (PNG/SVG)</label>
+              <label class="check-label"><input type="radio" name="logo" value="texte" /> J'ai juste du texte (pas de logo)</label>
+              <label class="check-label"><input type="radio" name="logo" value="non" /> Non, j'ai besoin d'un logo</label>
+            </div>
+          </div>
+          <div class="info-box">
+            <strong>Comment partager votre logo</strong>
+            Envoyez votre fichier logo de préférence en format PNG avec fond transparent ou SVG. Évitez les photos prises en screenshot. Méthodes acceptées : par courriel (<a href="mailto:LaurierWeb@gmail.com" style="color:var(--red)">LaurierWeb@gmail.com</a>) si le fichier est sous 10 MB, ou via un lien Google Drive partagé pour les fichiers plus lourds.
+          </div>
+          <div class="field">
+            <label>Avez-vous des photos à fournir ?</label>
+            <div class="check-group">
+              <label class="check-label"><input type="radio" name="photos" value="oui" /> Oui, j'ai mes propres photos</label>
+              <label class="check-label"><input type="radio" name="photos" value="non" /> Non, utiliser des photos libres de droits</label>
+              <label class="check-label"><input type="radio" name="photos" value="partiel" /> Partiellement — quelques photos seulement</label>
+            </div>
+          </div>
+          <div class="info-box">
+            <strong>Comment partager vos photos</strong>
+            1 à 5 photos : envoyez directement par courriel à <a href="mailto:LaurierWeb@gmail.com" style="color:var(--red)">LaurierWeb@gmail.com</a>. 6 photos et plus : créez un dossier Google Drive et partagez le lien. Important : envoyez en qualité originale — évitez WhatsApp ou iMessage (ces apps compriment les images).
+          </div>
+          <div class="field">
+            <label>Avez-vous les textes prêts pour votre site ?</label>
+            <div class="check-group">
+              <label class="check-label"><input type="radio" name="textes" value="oui" /> Oui, mes textes sont prêts</label>
+              <label class="check-label"><input type="radio" name="textes" value="non" /> Non, j'ai besoin d'aide pour les textes</label>
+              <label class="check-label"><input type="radio" name="textes" value="partiel" /> Partiellement</label>
+            </div>
+          </div>
+          <div class="info-box">
+            <strong>Comment fonctionnent les textes</strong>
+            Si vous ne fournissez pas vos textes, Laurier Web en rédigera une version de départ basée sur les informations que vous nous avez transmises. Ces textes seront inclus dans la première version du site soumise pour révision. Deux rondes de révisions sont incluses dans votre forfait.
+          </div>
+          <div class="field">
+            <label>Décrivez votre entreprise et ce que vous souhaitez communiquer sur votre site</label>
+            <textarea name="description" rows="5" placeholder="Mon entreprise offre... Je veux que mon site donne l'impression de... Mes clients cibles sont..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Nom de domaine -->
+      <div class="section-block">
+        <div class="section-title">4. Nom de domaine &amp; hébergement</div>
+        <div class="section-body">
+          <div class="field">
+            <label>Avez-vous déjà un nom de domaine ?</label>
+            <div class="check-group">
+              <label class="check-label"><input type="radio" name="domaine_existant" value="oui" /> Oui, j'ai déjà un domaine</label>
+              <label class="check-label"><input type="radio" name="domaine_existant" value="non" /> Non, je dois en acheter un</label>
+            </div>
+          </div>
+          <div class="row-2">
+            <div class="field">
+              <label>Si oui — quel est votre domaine ?</label>
+              <input type="text" name="domaine_url" placeholder="monentreprise.ca" />
+            </div>
+            <div class="field">
+              <label>Fournisseur du domaine</label>
+              <input type="text" name="fournisseur" placeholder="Namecheap, GoDaddy, Google Domains..." />
+            </div>
+          </div>
+          <div class="field">
+            <label>Gestion du domaine</label>
+            <div class="check-group">
+              <label class="check-label"><input type="radio" name="gestion_domaine" value="laurier" /> Laurier Web gère mon domaine (30$/an)</label>
+              <label class="check-label"><input type="radio" name="gestion_domaine" value="moi" /> Je gère mon domaine moi-même</label>
+            </div>
+          </div>
+          <div class="info-box">
+            Si vous gérez votre domaine vous-même, vous devrez nous fournir un accès à votre compte de registraire pour la configuration DNS, ou effectuer les changements vous-même avec notre guidance (tarif horaire 40$/h).
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Google -->
+      <div class="section-block">
+        <div class="section-title">5. Optimisation Google &amp; présence locale</div>
+        <div class="section-body">
+          <div class="info-box">
+            Si vous souhaitez apparaître dans les résultats Google et sur Google Maps, Laurier Web peut configurer votre Google Search Console et votre profil Google Business (<strong style="color:var(--text)">75$ — optionnel</strong>).
+          </div>
+          <div class="field">
+            <label>Souhaitez-vous ce service ?</label>
+            <div class="check-group">
+              <label class="check-label"><input type="radio" name="google_service" value="non" /> Non merci</label>
+              <label class="check-label"><input type="radio" name="google_service" value="oui" /> Oui, je veux ce service (75$)</label>
+              <label class="check-label"><input type="radio" name="google_service" value="sais_pas" /> Je ne sais pas encore</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Avez-vous déjà un profil Google Business ?</label>
+            <div class="check-group">
+              <label class="check-label"><input type="radio" name="google_business" value="oui_avis" /> Oui, avec des avis à conserver</label>
+              <label class="check-label"><input type="radio" name="google_business" value="oui_sans" /> Oui, sans avis</label>
+              <label class="check-label"><input type="radio" name="google_business" value="non" /> Non, je n'en ai pas</label>
+              <label class="check-label"><input type="radio" name="google_business" value="sais_pas" /> Je ne sais pas</label>
+            </div>
+          </div>
+          <div class="row-2">
+            <div class="field">
+              <label>Adresse Gmail associée à votre compte Google</label>
+              <input type="email" name="gmail" placeholder="monentreprise@gmail.com" />
+            </div>
+            <div class="field">
+              <label>Numéro de téléphone de l'entreprise</label>
+              <input type="tel" name="tel_entreprise" placeholder="514 000-0000" />
+            </div>
+          </div>
+          <div class="row-2">
+            <div class="field">
+              <label>Heures d'ouverture (jours)</label>
+              <input type="text" name="heures_jours" placeholder="Lundi – Vendredi" />
+            </div>
+            <div class="field">
+              <label>Heures</label>
+              <input type="text" name="heures" placeholder="9h – 17h" />
+            </div>
+          </div>
+          <div class="field">
+            <label>Zone de service</label>
+            <input type="text" name="zone_service" placeholder="Mirabel, Saint-Eustache, Boisbriand, Rive-Nord..." />
+          </div>
+          <div class="field">
+            <label>Accès pour la configuration</label>
+            <div class="check-group">
+              <label class="check-label"><input type="radio" name="acces_google" value="gestionnaire" /> Je vous invite comme gestionnaire sur mon compte Google</label>
+              <label class="check-label"><input type="radio" name="acces_google" value="identifiants" /> Je vous fournis mes identifiants Gmail temporairement</label>
+              <label class="check-label"><input type="radio" name="acces_google" value="nouveau" /> Vous créez un nouveau profil Google Business pour moi</label>
+            </div>
+          </div>
+          <div class="info-box">
+            Vous restez propriétaire de votre compte en tout temps. L'accès gestionnaire peut être retiré à tout moment en 2 clics depuis votre compte Google.
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Commentaires -->
+      <div class="section-block">
+        <div class="section-title">6. Commentaires &amp; questions</div>
+        <div class="section-body">
+          <div class="field">
+            <label>Commentaires, questions ou informations supplémentaires</label>
+            <textarea name="commentaires" rows="6" placeholder="Tout ce que vous souhaitez ajouter..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="submit-wrap">
+        <button type="submit" class="btn-submit" id="submitBtn">Envoyer le formulaire →</button>
+        <div class="success-msg" id="successMsg" style="display:none">
+          ✅ Formulaire envoyé ! Je vous contacte dans les 24 heures.
+        </div>
+      </div>
+
+    </form>
+
+    <p class="footer-note">
+      <a href="mailto:LaurierWeb@gmail.com">LaurierWeb@gmail.com</a> &nbsp;·&nbsp;
+      <a href="https://laurierweb.ca">laurierweb.ca</a> &nbsp;·&nbsp;
+      QC, Canada &nbsp;·&nbsp; © 2026 Laurier Web
+    </p>
+
+  </div>
+
+  <script>
+    document.getElementById('questionnaireForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      const msg = document.getElementById('successMsg');
+      btn.disabled = true;
+      btn.textContent = 'Envoi en cours…';
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(this)
+      })
+      .then(r => r.json())
+      .then(json => {
+        if (json.success) {
+          msg.style.display = 'block';
+          this.reset();
+        } else {
+          alert('Erreur — veuillez réessayer ou écrire à LaurierWeb@gmail.com');
+        }
+      })
+      .catch(() => alert('Erreur — veuillez réessayer ou écrire à LaurierWeb@gmail.com'))
+      .finally(() => {
+        btn.disabled = false;
+        btn.textContent = 'Envoyer le formulaire →';
+      });
+    });
+  </script>
+
+</body>
+</html>
