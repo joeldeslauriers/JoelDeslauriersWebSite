@@ -41,7 +41,7 @@
       text-align: center;
     }
     .header a { text-decoration: none; }
-    .header-logo { height: 120px; width: auto; }
+    .header-logo { height: 180px; width: auto; }
     .header-sub {
       margin-top: 8px;
       font-size: 0.78rem;
@@ -289,10 +289,6 @@
 
   <div class="container">
 
-    <div class="intro">
-      <p>Merci de prendre le temps de remplir ce formulaire. Ces informations m'aideront à concevoir un site web qui correspond parfaitement à vos besoins. Une fois complété, retournez-le par courriel à <strong style="color:var(--text)">LaurierWeb@gmail.com</strong>.</p>
-    </div>
-
     <form id="questionnaireForm">
       <input type="hidden" name="access_key" value="82fbe916-3d05-4187-922a-3287a5920ef7" />
       <input type="hidden" name="subject" value="Questionnaire de projet — Laurier Web" />
@@ -454,6 +450,10 @@
           <div class="info-box">
             Si vous gérez votre domaine vous-même, vous devrez nous fournir un accès à votre compte de registraire pour la configuration DNS, ou effectuer les changements vous-même avec notre guidance (tarif horaire 40$/h).
           </div>
+          <div class="info-box">
+            <strong>Votre domaine vous appartient toujours</strong>
+            Que Laurier Web achète le domaine en votre nom ou que vous le possédiez déjà, <strong style="color:var(--text)">vous restez propriétaire de votre domaine en tout temps</strong> une fois qu'il est payé et enregistré à votre nom. Si vous décidez de changer de fournisseur de site web dans le futur, vous pouvez transférer votre domaine librement, sans frais ni blocage de notre part. Votre adresse web vous appartient.
+          </div>
         </div>
       </div>
 
@@ -505,7 +505,14 @@
             <input type="text" name="zone_service" placeholder="Mirabel, Saint-Eustache, Boisbriand, Rive-Nord..." />
           </div>
           <div class="field">
-            <label>Accès pour la configuration</label>
+            <label>Gestion de votre profil Google Business</label>
+            <div class="check-group">
+              <label class="check-label"><input type="radio" name="gestion_google" value="laurier" /> <span><strong style="color:var(--text)">Laurier Web gère mon Google Business</strong> — réponses aux avis, ajout de photos, rotation de ville cible. Inclus dans le forfait Gestion SEO avancée (100$/mois)</span></label>
+              <label class="check-label"><input type="radio" name="gestion_google" value="client" /> <span><strong style="color:var(--text)">Je gère mon Google Business moi-même</strong> — accès gestionnaire requis pour la configuration initiale seulement. Les mises à jour de photos ou d'informations de base sont facturées 60$/intervention</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Accès pour la configuration initiale</label>
             <div class="check-group">
               <label class="check-label"><input type="radio" name="acces_google" value="gestionnaire" /> Je vous invite comme gestionnaire sur mon compte Google</label>
               <label class="check-label"><input type="radio" name="acces_google" value="identifiants" /> Je vous fournis mes identifiants Gmail temporairement</label>
@@ -533,15 +540,15 @@
             <div class="seo-card">
               <div class="seo-card-header">
                 <span class="seo-badge">Ponctuel</span>
-                <h3 class="seo-card-title">Mise à jour photos</h3>
-                <p class="seo-card-price">40 $ / intervention</p>
+                <h3 class="seo-card-title">Mise à jour photos / infos</h3>
+                <p class="seo-card-price">60 $ / intervention</p>
               </div>
               <ul class="seo-list">
                 <li>Remplacement ou ajout de photos sur votre site</li>
-                <li>Mise à jour de votre galerie ou sections visuelles</li>
+                <li>Mise à jour d'informations de base (heures, adresse, description, liens)</li>
                 <li>Sans abonnement, à votre rythme</li>
               </ul>
-              <p class="seo-note">Idéal pour garder votre site à jour visuellement, sans engagement.</p>
+              <p class="seo-note">Pour les clients qui gèrent leur Google Business eux-mêmes et qui ont besoin de mises à jour ponctuelles sur leur site.</p>
             </div>
 
             <div class="seo-card">
@@ -562,17 +569,16 @@
             <div class="seo-card seo-card--featured">
               <div class="seo-card-header">
                 <span class="seo-badge seo-badge--green">Recommandé</span>
-                <h3 class="seo-card-title">SEO mensuel</h3>
+                <h3 class="seo-card-title">Gestion SEO avancée</h3>
                 <p class="seo-card-price">100 $ / mois</p>
               </div>
               <ul class="seo-list">
-                <li>Mise à jour de photos incluse chaque mois</li>
-                <li>Création de contenu mensuel (articles / pages)</li>
-                <li>Optimisation continue de votre site</li>
-                <li>Gestion de votre fiche Google Business</li>
-                <li>Rapport de performance mensuel</li>
+                <li>Réponses aux avis et commentaires Google (gestion de réputation)</li>
+                <li>Ajout de nouvelles photos sur votre profil Google Business</li>
+                <li>Rotation des villes cibles SEO local chaque mois</li>
+                <li>Mise à jour des photos et/ou informations de base sur votre site incluse sans frais</li>
               </ul>
-              <p class="seo-note">Idéal pour les entreprises qui veulent croître sur Google et obtenir plus de clients en ligne.</p>
+              <p class="seo-note">Laurier Web gère votre présence Google au complet chaque mois — vous n'avez rien à faire.</p>
             </div>
 
           </div>
@@ -581,9 +587,9 @@
             <label>Quelle option vous intéresse ?</label>
             <div class="check-group">
               <label class="check-label"><input type="radio" name="seo_option" value="aucun" /> Aucune — le SEO de base inclus me suffit pour l'instant</label>
-              <label class="check-label"><input type="radio" name="seo_option" value="photos" /> Mise à jour photos — 40 $ à la demande</label>
+              <label class="check-label"><input type="radio" name="seo_option" value="photos" /> Mise à jour photos / infos — 60 $ à la demande</label>
               <label class="check-label"><input type="radio" name="seo_option" value="demande" /> SEO à la demande — 200 $ / intervention</label>
-              <label class="check-label"><input type="radio" name="seo_option" value="mensuel" /> SEO mensuel — 100 $/mois, photos incluses</label>
+              <label class="check-label"><input type="radio" name="seo_option" value="mensuel" /> Gestion SEO avancée — 100 $/mois (réponses aux avis, photos, ville cible)</label>
               <label class="check-label"><input type="radio" name="seo_option" value="sais_pas" /> Je ne sais pas encore — j'aimerais en discuter</label>
             </div>
           </div>
