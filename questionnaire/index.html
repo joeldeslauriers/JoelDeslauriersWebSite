@@ -165,6 +165,81 @@
     .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     @media (max-width: 600px) { .row-2 { grid-template-columns: 1fr; } }
 
+    /* ── SEO Cards ── */
+    .seo-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 600px) { .seo-cards { grid-template-columns: 1fr; } }
+
+    .seo-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .seo-card--featured {
+      border-color: rgba(76,175,80,0.4);
+    }
+    .seo-card-header {
+      background: var(--bg-2);
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+    .seo-card--featured .seo-card-header {
+      background: rgba(76,175,80,0.08);
+      border-bottom-color: rgba(76,175,80,0.2);
+    }
+    .seo-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .seo-badge--green { color: var(--red); }
+    .seo-card-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .seo-card-price {
+      font-size: 0.78rem;
+      color: var(--red);
+      font-weight: 600;
+    }
+    .seo-list {
+      list-style: none;
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .seo-list li {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      padding-left: 16px;
+      position: relative;
+    }
+    .seo-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--red);
+      font-weight: 700;
+    }
+    .seo-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-style: italic;
+      padding: 0 18px 16px;
+      line-height: 1.5;
+    }
+
     /* ── Submit ── */
     .submit-wrap { text-align: center; margin-top: 12px; }
     .btn-submit {
@@ -444,9 +519,66 @@
         </div>
       </div>
 
-      <!-- 6. Commentaires -->
+      <!-- 6. SEO -->
       <div class="section-block">
-        <div class="section-title">6. Commentaires &amp; questions</div>
+        <div class="section-title">6. Référencement Google (SEO) — optionnel</div>
+        <div class="section-body">
+          <div class="info-box">
+            <strong>Le SEO de base est inclus avec votre site</strong>
+            Chaque site livré par Laurier Web inclut la configuration technique complète, la soumission à Google, et la mise en place de votre fiche Google Business. C'est la fondation — incluse sans frais supplémentaires.<br /><br />
+            Si vous souhaitez aller plus loin et croître activement sur Google, deux options sont disponibles :
+          </div>
+
+          <div class="seo-cards">
+
+            <div class="seo-card">
+              <div class="seo-card-header">
+                <span class="seo-badge">Flexible</span>
+                <h3 class="seo-card-title">SEO à la demande</h3>
+                <p class="seo-card-price">150 $ – 400 $ / intervention</p>
+              </div>
+              <ul class="seo-list">
+                <li>Nouvelles pages par ville ou service</li>
+                <li>Rédaction d'articles optimisés Google</li>
+                <li>Mise à jour de pages existantes</li>
+                <li>Optimisation de votre fiche Google Business</li>
+              </ul>
+              <p class="seo-note">Idéal pour les entreprises qui veulent des améliorations ponctuelles, sans engagement mensuel.</p>
+            </div>
+
+            <div class="seo-card seo-card--featured">
+              <div class="seo-card-header">
+                <span class="seo-badge seo-badge--green">Recommandé</span>
+                <h3 class="seo-card-title">SEO mensuel</h3>
+                <p class="seo-card-price">Abonnement mensuel</p>
+              </div>
+              <ul class="seo-list">
+                <li>Création de contenu mensuel (articles / pages)</li>
+                <li>Optimisation continue de votre site</li>
+                <li>Gestion de votre fiche Google Business</li>
+                <li>Suivi de la stratégie d'avis clients</li>
+                <li>Rapport de performance mensuel</li>
+              </ul>
+              <p class="seo-note">Idéal pour les entreprises qui veulent croître sur Google et obtenir plus de clients en ligne.</p>
+            </div>
+
+          </div>
+
+          <div class="field" style="margin-top:8px">
+            <label>Quelle option vous intéresse ?</label>
+            <div class="check-group">
+              <label class="check-label"><input type="radio" name="seo_option" value="aucun" /> Aucune — le SEO de base inclus me suffit pour l'instant</label>
+              <label class="check-label"><input type="radio" name="seo_option" value="demande" /> SEO à la demande — interventions ponctuelles sans engagement</label>
+              <label class="check-label"><input type="radio" name="seo_option" value="mensuel" /> SEO mensuel — je veux croître activement sur Google</label>
+              <label class="check-label"><input type="radio" name="seo_option" value="sais_pas" /> Je ne sais pas encore — j'aimerais en discuter</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Commentaires -->
+      <div class="section-block">
+        <div class="section-title">7. Commentaires &amp; questions</div>
         <div class="section-body">
           <div class="field">
             <label>Commentaires, questions ou informations supplémentaires</label>
