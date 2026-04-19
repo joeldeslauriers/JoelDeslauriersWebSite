@@ -32,32 +32,145 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "ProfessionalService",
+    "@id": "https://laurierweb.ca/#business",
     "name": "Laurier Web",
-    "description": "Agence de création de sites web professionnels sur la Rive-Nord du Québec.",
+    "description": "Agence de création de sites web professionnels sur la Rive-Nord du Québec. Sites vitrines, portfolios et blogues pour notaires, PME, entrepreneurs et travailleurs autonomes. Prototype gratuit en 72 heures.",
     "url": "https://laurierweb.ca",
     "email": "LaurierWeb@gmail.com",
     "telephone": "+1-514-622-7486",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://laurierweb.ca/assets/images/LogoTransparent.png"
+    },
+    "image": "https://laurierweb.ca/assets/images/LogoBackground.png",
     "address": {
       "@type": "PostalAddress",
+      "addressLocality": "Mirabel",
       "addressRegion": "QC",
       "addressCountry": "CA"
     },
     "areaServed": [
-      "Mirabel", "Blainville", "Saint-Jérôme", "Saint-Eustache", "Boisbriand",
-      "Sainte-Thérèse", "Deux-Montagnes", "Rosemère", "Lorraine",
-      "Saint-Joseph-du-Lac", "Oka", "Prévost", "Saint-Colomban",
-      "Sainte-Anne-des-Plaines", "Rive-Nord"
+      {"@type": "City", "name": "Mirabel"},
+      {"@type": "City", "name": "Blainville"},
+      {"@type": "City", "name": "Saint-Jérôme"},
+      {"@type": "City", "name": "Saint-Eustache"},
+      {"@type": "City", "name": "Boisbriand"},
+      {"@type": "City", "name": "Sainte-Thérèse"},
+      {"@type": "City", "name": "Deux-Montagnes"},
+      {"@type": "City", "name": "Rosemère"},
+      {"@type": "City", "name": "Lorraine"},
+      {"@type": "City", "name": "Saint-Joseph-du-Lac"},
+      {"@type": "City", "name": "Oka"},
+      {"@type": "City", "name": "Prévost"},
+      {"@type": "City", "name": "Saint-Colomban"},
+      {"@type": "City", "name": "Sainte-Anne-des-Plaines"}
     ],
-    "serviceType": [
-      "Création de site web", "Site vitrine", "Portfolio", "Blogue",
-      "Site web pour notaire", "Site web pour entrepreneur", "Site web pour barbier",
-      "Site web pour salon de coiffure", "Site web pour PME"
-    ],
+    "knowsLanguage": "fr-CA",
     "priceRange": "$$",
-    "sameAs": ["https://laurierweb.ca"]
+    "currenciesAccepted": "CAD",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services de création web",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Site Vitrine Pro",
+            "description": "Site web professionnel pour notaires, barbiers, coiffeurs, entrepreneurs et PME de la Rive-Nord."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Portfolio Créatif",
+            "description": "Site portfolio pour photographes, designers, artistes et freelances."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Blogue & Magazine",
+            "description": "Site blogue pour coachs, experts, journalistes et créateurs de contenu."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Prototype gratuit",
+            "description": "Aperçu visuel personnalisé de votre futur site, livré en 72 heures gratuitement et sans engagement."
+          },
+          "price": "0",
+          "priceCurrency": "CAD"
+        }
+      ]
+    }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://laurierweb.ca/#website",
+    "name": "Laurier Web",
+    "url": "https://laurierweb.ca",
+    "inLanguage": "fr-CA",
+    "publisher": {"@id": "https://laurierweb.ca/#business"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Combien coûte un site web avec Laurier Web?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nos forfaits débutent à 300 $. Le prix final dépend du type de site (vitrine, portfolio, blogue) et de vos besoins spécifiques. Aucun frais caché — vous savez exactement ce que vous obtenez avant de vous engager."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Combien de temps faut-il pour créer mon site web?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La plupart de nos projets sont livrés en 4 à 7 jours ouvrables. Nous offrons également un prototype gratuit livré en 72 heures, sans engagement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Servez-vous uniquement la Rive-Nord?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nous desservons principalement la Rive-Nord — Mirabel, Blainville, Saint-Jérôme, Saint-Eustache, Boisbriand, Sainte-Thérèse, Deux-Montagnes, Rosemère et les environs — mais nous travaillons aussi avec des clients de partout au Québec."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Qu'est-ce qu'un prototype gratuit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Un prototype est un aperçu visuel personnalisé de votre futur site, créé en 72 heures. Il est 100 % gratuit, sans obligation d'achat. Vous le validez, puis vous décidez si vous voulez continuer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Qu'est-ce qui est inclus dans le prix?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Design, développement, hébergement haute performance, nom de domaine et certificat SSL — tout est inclus pour la première année. Clé en main, sans mauvaise surprise."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="preload" as="image" href="assets/images/Herosite.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -79,6 +192,7 @@
         <li><a href="#modeles">Modèles</a></li>
         <li><a href="#realisations">Réalisations</a></li>
         <li><a href="#services">Services</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav-limelight" id="navLimelight" aria-hidden="true">
@@ -144,7 +258,7 @@
             <div class="hb-url">votre-site.ca</div>
           </div>
           <div class="hb-screen hb-screen--img">
-            <img src="assets/images/Herosite.png" alt="Aperçu site Laurier Web" class="hb-screenshot" />
+            <img src="assets/images/Herosite.png" alt="Aperçu site Laurier Web" class="hb-screenshot" fetchpriority="high" />
           </div>
         </div>
       </div>
@@ -189,7 +303,7 @@
         <!-- Carte 1 — Site Vitrine Pro -->
         <article class="card reveal">
           <div class="card-thumb">
-            <img src="assets/images/vitrine.png" alt="Aperçu Site Vitrine Pro" class="card-thumb-img" />
+            <img src="assets/images/vitrine.png" alt="Aperçu Site Vitrine Pro" class="card-thumb-img" loading="lazy" />
             <div class="card-badge badge-pop">Populaire</div>
           </div>
           <div class="card-body">
@@ -205,7 +319,7 @@
         <!-- Carte 2 — Portfolio Créatif -->
         <article class="card reveal">
           <div class="card-thumb">
-            <img src="assets/images/Portfolio.png" alt="Aperçu Portfolio Créatif" class="card-thumb-img" />
+            <img src="assets/images/Portfolio.png" alt="Aperçu Portfolio Créatif" class="card-thumb-img" loading="lazy" />
           </div>
           <div class="card-body">
             <h3>Portfolio Créatif</h3>
@@ -220,7 +334,7 @@
         <!-- Carte 3 — Blogue & Magazine -->
         <article class="card reveal">
           <div class="card-thumb">
-            <img src="assets/images/blogue.png" alt="Aperçu Blogue &amp; Magazine" class="card-thumb-img" />
+            <img src="assets/images/blogue.png" alt="Aperçu Blogue &amp; Magazine" class="card-thumb-img" loading="lazy" />
             <div class="card-badge badge-new">Nouveau</div>
           </div>
           <div class="card-body">
@@ -462,14 +576,54 @@
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════ FAQ ═══════════════════════════════════════ -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-label">Questions fréquentes</span>
+        <h2>On répond à vos questions</h2>
+        <p>Tout ce que vous voulez savoir avant de démarrer votre projet web.</p>
+      </div>
+
+      <div class="faq-list">
+
+        <details class="faq-item reveal">
+          <summary class="faq-q">Combien coûte un site web avec Laurier Web?</summary>
+          <p class="faq-a">Nos forfaits débutent à 300 $. Le prix final dépend du type de site et de vos besoins. Aucun frais caché — vous savez exactement ce que vous obtenez avant de vous engager.</p>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary class="faq-q">Combien de temps faut-il pour créer mon site?</summary>
+          <p class="faq-a">La plupart de nos projets sont livrés en 4 à 7 jours ouvrables. Nous offrons aussi un prototype gratuit en 72 h — pour que vous puissiez voir le résultat avant de décider.</p>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary class="faq-q">Servez-vous uniquement la Rive-Nord?</summary>
+          <p class="faq-a">Nous desservons principalement la Rive-Nord — <strong>Mirabel, Blainville, Saint-Jérôme, Saint-Eustache, Boisbriand, Sainte-Thérèse, Deux-Montagnes, Rosemère</strong> et les environs. Mais nous collaborons aussi avec des clients de partout au Québec.</p>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary class="faq-q">Qu'est-ce qui est inclus dans le prix?</summary>
+          <p class="faq-a">Design, développement, hébergement haute performance, nom de domaine et certificat SSL — tout est inclus pour la première année. Clé en main, sans mauvaise surprise.</p>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary class="faq-q">Est-ce que mon site sera optimisé pour Google?</summary>
+          <p class="faq-a">Oui. Chaque site livré par Laurier Web est construit avec les bonnes pratiques SEO : structure sémantique, balises méta locales, vitesse de chargement optimisée et compatibilité mobile complète.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════════════════════════════════ FORMULAIRE ═══════════════════════════════════════ -->
   <section class="section contact-section" id="contact">
     <div class="container">
 
       <div class="form-wrapper reveal">
         <div class="form-header">
-          <span class="section-label light">Formulaire de soumission</span>
-          <h2>Formulaire de soumission</h2>
+          <span class="section-label light">Contact</span>
+          <h2>Démarrez votre projet web</h2>
           <p>Remplissez le formulaire ci-dessous et nous vous répondons sous 24 h.</p>
         </div>
 
@@ -547,6 +701,7 @@
             <img src="assets/images/LogoTransparent.png" alt="Laurier Web" class="logo-image" />
           </a>
           <p class="footer-tagline">Présence web professionnelle —<br />crédible et mémorable.</p>
+          <p class="footer-zones">Mirabel · Blainville · Saint-Jérôme · Saint-Eustache · Boisbriand · Sainte-Thérèse · Deux-Montagnes · Rosemère · et partout au Québec.</p>
           <span class="footer-location">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             QC, Canada
@@ -561,6 +716,7 @@
             <li><a href="#modeles">Modèles</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#realisations">Réalisations</a></li>
+            <li><a href="#faq">FAQ</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="#contact" class="footer-link-cta">Obtenir un devis →</a></li>
           </ul>
