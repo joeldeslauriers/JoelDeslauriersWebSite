@@ -98,6 +98,18 @@ Version courante : **2.3.1** (spotlight cards, 2026-04-16)
 
 ---
 
+## SEO — Standard obligatoire sur chaque projet
+
+**Pour tout nouveau site livré par Laurier Web**, appliquer automatiquement le workflow complet sans attendre qu'on le demande :
+
+→ Voir [`workflows/seo_nouveau_projet.md`](workflows/seo_nouveau_projet.md)
+
+Ce workflow couvre : métadonnées, Open Graph, schémas JSON-LD (LocalBusiness + WebSite + FAQPage), performance images, fichiers `sitemap.xml` / `robots.txt`, contenu local, et checklist de remise au client.
+
+**Informations à demander au client avant de commencer :** domaine final, ville(s) desservies, téléphone, courriel, URL Google Business Profile, image OG 1200×630px.
+
+---
+
 ## Autonomie — aucune confirmation requise
 
 Effectuer **toutes** les modifications directement sans demander de confirmation.  
