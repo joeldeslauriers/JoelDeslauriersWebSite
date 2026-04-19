@@ -631,6 +631,55 @@ ul  { list-style: none; }
 }
 
 /* ═══════════════════════════════════
+   MANIFESTE
+═══════════════════════════════════ */
+.statement-strip {
+  background: var(--bg-2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.statement-inner { max-width: 860px; margin-inline: auto; }
+
+.statement-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 20px;
+}
+
+.statement-text {
+  font-family: var(--font-head);
+  font-size: clamp(1.7rem, 3.8vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.5px;
+  margin-bottom: 22px;
+  color: var(--text);
+}
+
+.statement-highlight {
+  color: var(--red);
+  position: relative;
+}
+
+.statement-sub {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+.statement-sub strong { color: var(--text); font-weight: 700; }
+
+@media (max-width: 768px) {
+  .br-desktop { display: none; }
+  .statement-strip { padding: 56px 0; }
+}
+
+/* ═══════════════════════════════════
    MODÈLES — CARDS
 ═══════════════════════════════════ */
 .modeles { background: transparent; }
