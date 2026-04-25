@@ -154,8 +154,7 @@ ul  { list-style: none; }
   display: flex;
   align-items: center;
   height: 100%;
-  max-width: var(--max-w);
-  margin: 0 auto;
+  width: 100%;
   padding: 0 32px;
   gap: 48px;
   position: relative;
