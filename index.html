@@ -1,28 +1,33 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr-CA">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Création de site web Rive-Nord | Mirabel, Blainville, Saint-Jérôme — Laurier Web</title>
-  <meta name="description" content="Agence web sur la Rive-Nord : création de sites web pour notaires, entrepreneurs, barbiers et PME. Mirabel, Blainville, Saint-Jérôme, Saint-Eustache. Prototype gratuit en 72h." />
+  <title>Création site web Rive-Nord | Laurier Web</title>
+  <meta name="description" content="Création de sites web professionnels sur la Rive-Nord pour notaires, PME et entrepreneurs. Mirabel, Blainville, Saint-Jérôme. Prototype gratuit en 72h." />
   <meta name="keywords" content="création site web Mirabel, création site web Blainville, création site web Saint-Jérôme, agence web Rive-Nord, site web notaire, site web entrepreneur, site web barbier, site web salon coiffure, site web PME, site web pas cher Rive-Nord, création site web abordable, site web Saint-Eustache, site web Boisbriand, site web Sainte-Thérèse, site web Rosemère, site web Deux-Montagnes, agence web Québec" />
   <meta name="author" content="Laurier Web" />
   <meta name="robots" content="index, follow" />
   <meta name="google-site-verification" content="0292b7c1e16aa6a2" />
   <meta name="google-site-verification" content="QXxcqD3nbH7M9DW1fIiabyXTuWGIV3mVBaXO-bydncg" />
-  <link rel="canonical" href="https://laurierweb.ca" />
+  <link rel="canonical" href="https://laurierweb.ca/" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#050608" />
   <!-- Open Graph -->
   <meta property="og:type"        content="website" />
   <meta property="og:site_name"   content="Laurier Web" />
   <meta property="og:locale"      content="fr_CA" />
   <meta property="og:title"       content="Laurier Web — Création de sites web · Rive-Nord" />
   <meta property="og:description" content="Sites web professionnels pour PME et travailleurs autonomes à Mirabel, Saint-Eustache, Boisbriand et la Rive-Nord. Forfaits à partir de 300$." />
-  <meta property="og:url"         content="https://laurierweb.ca" />
+  <meta property="og:url"         content="https://laurierweb.ca/" />
   <meta property="og:image"       content="https://laurierweb.ca/assets/images/OG.png" />
+  <meta property="og:image:type"  content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt"   content="Laurier Web — Création de sites web professionnels sur la Rive-Nord" />
@@ -38,14 +43,14 @@
     "@id": "https://laurierweb.ca/#business",
     "name": "Laurier Web",
     "description": "Agence de création de sites web professionnels sur la Rive-Nord du Québec. Sites vitrines, portfolios et blogues pour notaires, PME, entrepreneurs et travailleurs autonomes. Prototype gratuit en 72 heures.",
-    "url": "https://laurierweb.ca",
+    "url": "https://laurierweb.ca/",
     "email": "LaurierWeb@gmail.com",
     "telephone": "+1-514-622-7486",
     "logo": {
       "@type": "ImageObject",
       "url": "https://laurierweb.ca/assets/images/LogoTransparent.png"
     },
-    "image": "https://laurierweb.ca/assets/images/LogoBackground.png",
+    "image": "https://laurierweb.ca/assets/images/OG.png",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Mirabel",
@@ -128,7 +133,7 @@
     "@type": "WebSite",
     "@id": "https://laurierweb.ca/#website",
     "name": "Laurier Web",
-    "url": "https://laurierweb.ca",
+    "url": "https://laurierweb.ca/",
     "inLanguage": "fr-CA",
     "publisher": {"@id": "https://laurierweb.ca/#business"}
   }
@@ -194,7 +199,7 @@
   <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
 
   <!-- ═══════════════════════════════════════ NAVIGATION ═══════════════════════════════════════ -->
-  <nav class="navbar" id="navbar">
+  <nav class="navbar" id="navbar" aria-label="Navigation principale">
     <div class="nav-inner">
       <a href="#" class="logo" aria-label="Laurier Web — accueil">
         <img src="assets/images/LogoTransparent.png" alt="Laurier Web" class="logo-image" />
@@ -209,6 +214,7 @@
       <div class="nav-limelight" id="navLimelight" aria-hidden="true">
         <div class="nav-limelight-cone"></div>
       </div>
+      <span class="nav-version">v2.8.9</span>
       <a href="#contact" class="btn btn-red nav-cta">Obtenir un devis</a>
       <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -480,25 +486,33 @@
       <div class="features-grid">
 
         <div class="feature-card reveal">
-          <div class="feat-icon feat-yellow">⚡</div>
+          <div class="feat-icon feat-yellow" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>
+          </div>
           <h3>Rapide à livrer</h3>
           <p>La plupart de nos projets sont en ligne en moins de 10 jours. Pas de délais interminables.</p>
         </div>
 
         <div class="feature-card reveal">
-          <div class="feat-icon feat-cyan">📱</div>
+          <div class="feat-icon feat-cyan" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+          </div>
           <h3>100 % Responsive</h3>
           <p>Optimisé pour mobile, tablette et desktop. Chaque pixel est soigné sur tous les écrans.</p>
         </div>
 
         <div class="feature-card reveal">
-          <div class="feat-icon feat-red">🔍</div>
+          <div class="feat-icon feat-red" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/><path d="M8 11h6"/><path d="M11 8v6"/></svg>
+          </div>
           <h3>SEO optimisé</h3>
           <p>Structure sémantique, balises méta, vitesse de chargement — pour que Google vous trouve.</p>
         </div>
 
         <div class="feature-card reveal">
-          <div class="feat-icon feat-green">🔒</div>
+          <div class="feat-icon feat-green" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><path d="M12 15v2"/></svg>
+          </div>
           <h3>Hébergement &amp; SSL</h3>
           <p>Domaine, hébergement haute performance et certificat SSL inclus la première année.</p>
         </div>
@@ -519,17 +533,8 @@
       <div class="real-grid real-grid--2">
 
         <div class="real-card reveal">
-          <div class="real-preview preview-purple">
-            <div class="browser-chrome">
-              <span class="bc-dot bc-red"></span>
-              <span class="bc-dot bc-yellow"></span>
-              <span class="bc-dot bc-green"></span>
-              <span class="bc-bar">joelaurierproduction.com</span>
-            </div>
-            <div class="preview-content">
-              <span class="preview-emoji">🎵</span>
-              <span class="preview-label">Musique &amp; Production</span>
-            </div>
+          <div class="real-preview real-logo-preview real-logo-preview--jlp">
+            <img src="assets/images/JLPLogo.png" alt="Logo Joe Laurier Production" class="real-logo-img" loading="lazy" width="1024" height="1024" />
           </div>
           <div class="real-body">
             <h3>Joe Laurier Music Production</h3>
@@ -543,17 +548,8 @@
         </div>
 
         <div class="real-card reveal">
-          <div class="real-preview preview-orange">
-            <div class="browser-chrome">
-              <span class="bc-dot bc-red"></span>
-              <span class="bc-dot bc-yellow"></span>
-              <span class="bc-dot bc-green"></span>
-              <span class="bc-bar">scellantscellco.ca</span>
-            </div>
-            <div class="preview-content">
-              <span class="preview-emoji">🏗️</span>
-              <span class="preview-label">Construction</span>
-            </div>
+          <div class="real-preview real-logo-preview real-logo-preview--scellco">
+            <img src="assets/images/ScellcoLogoCropped.png" alt="Logo Scellco" class="real-logo-img" loading="lazy" width="1300" height="340" />
           </div>
           <div class="real-body">
             <h3>Scellant Scellco</h3>
@@ -772,6 +768,7 @@
 
       <div class="footer-bottom">
         <p>© 2026 Laurier Web. Tous droits réservés.</p>
+        <span id="siteVersion" class="footer-version">v2.8.9</span>
       </div>
     </div>
   </footer>
