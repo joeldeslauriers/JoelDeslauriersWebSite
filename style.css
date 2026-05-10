@@ -224,6 +224,7 @@ ul  { list-style: none; }
 .nav-links.ll-active a.ll-focus { opacity: 1; color: var(--text); }
 
 .nav-version {
+  display: none;
   font-family: var(--font-body);
   font-size: 10px;
   font-weight: 600;
@@ -1726,6 +1727,7 @@ textarea { resize: vertical; min-height: 120px; line-height: 1.7; }
 }
 .footer-bottom p { font-size: 0.78rem; color: var(--text-dim); }
 .footer-version {
+  display: none;
   font-size: 0.66rem;
   color: var(--text-dim);
   background: var(--surface);
